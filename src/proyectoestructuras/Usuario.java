@@ -3,12 +3,12 @@ package proyectoestructuras;
  */
 public class Usuario {
     private String contraseña;
-    private int id;
+    private String id;
 
     public Usuario() {
     }
 
-    public Usuario(String contraseña, int id) {
+    public Usuario(String contraseña, String id) {
         this.contraseña = contraseña;
         this.id = id;
     }
@@ -21,11 +21,11 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

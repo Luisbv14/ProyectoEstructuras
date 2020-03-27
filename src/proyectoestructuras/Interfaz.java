@@ -28,6 +28,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        Fondo = new javax.swing.JLabel();
         btn_Taller = new javax.swing.JButton();
         btn_Isla_A = new javax.swing.JButton();
         btn_Isla_C = new javax.swing.JButton();
@@ -37,12 +38,14 @@ public class Interfaz extends javax.swing.JFrame {
         btn_Isla_F = new javax.swing.JButton();
         btn_Entrada = new javax.swing.JButton();
         btn_salida = new javax.swing.JButton();
-        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Interfaz.jpg"))); // NOI18N
+        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, -1));
 
         btn_Taller.setText("jB");
         btn_Taller.addActionListener(new java.awt.event.ActionListener() {
@@ -53,31 +56,68 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1.add(btn_Taller, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 250, 70));
 
         btn_Isla_A.setText("jButton2");
+        btn_Isla_A.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Isla_AActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Isla_A, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 160, 160));
 
         btn_Isla_C.setText("jButton3");
+        btn_Isla_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Isla_CActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Isla_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, 130, 150));
 
         btn_Isla_D.setText("jButton4");
+        btn_Isla_D.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Isla_DActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Isla_D, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 130, 150));
 
         btn_Isla_B.setText("jButton5");
+        btn_Isla_B.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Isla_BActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Isla_B, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 150, 150));
 
         btn_Isla_E.setText("jButton6");
+        btn_Isla_E.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Isla_EActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Isla_E, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 50, 160));
 
         btn_Isla_F.setText("jButton7");
+        btn_Isla_F.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Isla_FActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Isla_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 200, 60, 230));
 
         btn_Entrada.setText("jButton1");
+        btn_Entrada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_EntradaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_Entrada, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, 70));
 
         btn_salida.setText("jButton1");
+        btn_salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_salidaActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn_salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Interfaz.jpg"))); // NOI18N
-        jPanel1.add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 440));
 
@@ -88,6 +128,46 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.out.println("funciona");
     }//GEN-LAST:event_btn_TallerActionPerformed
+
+    private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_Isla_CActionPerformed
+
+    private void btn_Isla_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_DActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_Isla_DActionPerformed
+
+    private void btn_Isla_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_BActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_Isla_BActionPerformed
+
+    private void btn_Isla_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_EActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_Isla_EActionPerformed
+
+    private void btn_Isla_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_FActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_Isla_FActionPerformed
+
+    private void btn_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntradaActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_EntradaActionPerformed
+
+    private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_salidaActionPerformed
+
+    private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
+        // TODO add your handling code here:
+        System.out.println("funciona");
+    }//GEN-LAST:event_btn_Isla_AActionPerformed
 
     /**
      * @param args the command line arguments
