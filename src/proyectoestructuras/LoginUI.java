@@ -5,6 +5,8 @@
  */
 package proyectoestructuras;
 
+import java.awt.Component;
+
 /**
  *
  * @author Jean Franco
@@ -17,8 +19,9 @@ public class LoginUI extends javax.swing.JFrame {
     Usuario u = new Usuario();
     Interfaz i = new Interfaz();
     public LoginUI() {
+        this.setLocationRelativeTo(null);
         initComponents();
-        
+        this.getRootPane().setDefaultButton(btn_login);
     }
 
     /**
@@ -57,7 +60,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         lb_contraseña.setText("Contraseña");
         jPanel1.add(lb_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
-        jPanel1.add(lb_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        jPanel1.add(lb_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, 30));
         jPanel1.add(pwf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 210, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 280));
@@ -69,9 +72,9 @@ public class LoginUI extends javax.swing.JFrame {
         // TODO add your handling code here:
       u.setId(txf_ID.getText());
       u.setContraseña(pwf_password.getText());
-      if("Admin".equals(u.getContraseña()) || "Admin".equals(u.getId())){
-      this.setVisible(false);
-      i.setVisible(true);
+      if("Admin".equals(u.getContraseña()) && "Admin".equals(u.getId())){
+        this.dispose();
+        i.setVisible(true);
       }else{
           lb_error.setText("Los datos ingresados no son los correctos");
       }

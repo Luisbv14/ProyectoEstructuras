@@ -3,7 +3,7 @@ package proyectoestructuras;
  */
 public class Fruta {
     private String tipo;
-    private int cant;
+    private int estadoCapacidad;
     private String fechaExpiracion;
 
     public Fruta() {
@@ -11,7 +11,7 @@ public class Fruta {
 
     public Fruta(String tipo, int cant, String fechaExpiracion) {
         this.tipo = tipo;
-        this.cant = cant;
+        this.estadoCapacidad = cant;
         this.fechaExpiracion = fechaExpiracion;
     }
 
@@ -23,12 +23,12 @@ public class Fruta {
         this.tipo = tipo;
     }
 
-    public int getCant() {
-        return cant;
+    public int getEstadoCapacidad() {
+        return estadoCapacidad;
     }
 
-    public void setCant(int cant) {
-        this.cant = cant;
+    public void setEstadoCapacidad(int estadoCapacidad) {
+        this.estadoCapacidad = estadoCapacidad;
     }
 
     public String getFechaExpiracion() {
