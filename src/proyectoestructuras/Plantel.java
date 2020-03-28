@@ -5,19 +5,34 @@
  */
 package proyectoestructuras;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author Jean Franco
  */
-public class Interfaz extends javax.swing.JFrame {
+public class Plantel extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
-    public Interfaz() {
+    LinkedList<Contenedor> container;
+    Fruta fruit;
+    Planta plants;
+    Vegetal veg;
+    
+    public Plantel() {
         initComponents();
     }
-
+    
+    public void llenarContainer() {
+        for (int i = 1;i <= 50; i++) {
+            container = new LinkedList<>();
+            container.get(i).setId(i);
+            int aux1 = (int) (Math.random() * (3-1)+1);
+            switch(aux1) {
+                
+            }
+//            container.get(i).setCarga((fruit = new Fruta()).toString());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -125,47 +140,47 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_TallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TallerActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_TallerActionPerformed
 
     private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_CActionPerformed
 
     private void btn_Isla_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_DActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_DActionPerformed
 
     private void btn_Isla_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_BActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_BActionPerformed
 
     private void btn_Isla_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_EActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_EActionPerformed
 
     private void btn_Isla_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_FActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_FActionPerformed
 
     private void btn_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntradaActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_EntradaActionPerformed
 
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_salidaActionPerformed
 
     private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
-        // TODO add your handling code here:
+        
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_AActionPerformed
 
@@ -186,20 +201,21 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Interfaz().setVisible(true);
+                new Plantel().setVisible(true);
             }
         });
     }

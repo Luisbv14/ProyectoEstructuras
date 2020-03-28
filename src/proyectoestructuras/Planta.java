@@ -28,5 +28,10 @@ public class Planta {
     public void setCant(int cant) {
         this.cant = cant;
     }
+
+    @Override
+    public String toString() {
+        return "Planta: " + "tipo= " + tipo + ", cant= " + cant + ".";
+    }
     
 }

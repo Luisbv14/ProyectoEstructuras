@@ -17,7 +17,7 @@ public class LoginUI extends javax.swing.JFrame {
      * Creates new form Login
      */
     Usuario u = new Usuario();
-    Interfaz i = new Interfaz();
+    Plantel i = new Plantel();
     public LoginUI() {
         this.setLocationRelativeTo(null);
         initComponents();
@@ -69,7 +69,6 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        // TODO add your handling code here:
       u.setId(txf_ID.getText());
       u.setContraseña(pwf_password.getText());
       if("Admin".equals(u.getContraseña()) && "Admin".equals(u.getId())){

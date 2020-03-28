@@ -38,5 +38,10 @@ public class Vegetal {
     public void setFechaExpiracion(String fechaExpiracion) {
         this.fechaExpiracion = fechaExpiracion;
     }
+
+    @Override
+    public String toString() {
+        return "Vegetal: " + "tipo= " + tipo + ", cant= " + cant + ", fechaExpiracion= " + fechaExpiracion + ".";
+    }
     
 }

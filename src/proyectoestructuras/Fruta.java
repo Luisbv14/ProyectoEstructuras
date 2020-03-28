@@ -3,16 +3,24 @@ package proyectoestructuras;
  */
 public class Fruta {
     private String tipo;
-    private int estadoCapacidad;
-    private String fechaExpiracion;
+    private int cant;
 
     public Fruta() {
+        int aux =(int) (Math.random() * (3-1) + 1);
+        switch(aux) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+        }
+        this.set
     }
 
-    public Fruta(String tipo, int cant, String fechaExpiracion) {
+    public Fruta(String tipo, int cant) {
         this.tipo = tipo;
-        this.estadoCapacidad = cant;
-        this.fechaExpiracion = fechaExpiracion;
+        this.cant = cant;
     }
 
     public String getTipo() {
@@ -23,20 +31,16 @@ public class Fruta {
         this.tipo = tipo;
     }
 
-    public int getEstadoCapacidad() {
-        return estadoCapacidad;
+    public int getCant() {
+        return cant;
     }
 
-    public void setEstadoCapacidad(int estadoCapacidad) {
-        this.estadoCapacidad = estadoCapacidad;
+    public void setCant(int cant) {
+        this.cant = cant;
     }
 
-    public String getFechaExpiracion() {
-        return fechaExpiracion;
+    @Override
+    public String toString() {
+        return "Fruta: " + "tipo= " + tipo + ", estadoCapacidad= " + cant + ".";
     }
-
-    public void setFechaExpiracion(String fechaExpiracion) {
-        this.fechaExpiracion = fechaExpiracion;
-    }
-    
 }
