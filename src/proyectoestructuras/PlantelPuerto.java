@@ -11,14 +11,15 @@ import java.util.LinkedList;
  *
  * @author Jean Franco
  */
-public class Plantel extends javax.swing.JFrame {
+public class PlantelPuerto extends javax.swing.JFrame {
 
     LinkedList<Contenedor> container;
     Fruta fruit;
     Planta plants;
     Vegetal veg;
     
-    public Plantel() {
+    public PlantelPuerto() {
+        this.setLocationRelativeTo(null);
         initComponents();
     }
     
@@ -28,9 +29,27 @@ public class Plantel extends javax.swing.JFrame {
             container.get(i).setId(i);
             int aux1 = (int) (Math.random() * (3-1)+1);
             switch(aux1) {
-                
+                case 1:
+                    container.get(i).setCarga((fruit = new Fruta()).getTipo());
+                    container.get(i).setDescripCarga("Contiene frutas");
+                    break;
+                case 2:
+                    container.get(i).setCarga((plants = new Planta()).getTipo());
+                    container.get(i).setDescripCarga("Contiene plantas");
+                    break;
+                case 3:
+                    container.get(i).setCarga((veg = new Vegetal()).getTipo());
+                    container.get(i).setDescripCarga("Contiene vegetales");
+                    break;
             }
-//            container.get(i).setCarga((fruit = new Fruta()).toString());
+            container.get(i).setUbicacion("Barco, importación");
+            container.get(i).setEstadoCapacidad("Lleno");
+            //Poner aqui la fecha de llegada al plantel del puerto
+            int aux2 = (int) (Math.random() * (10-1)+1);
+            if (aux2 == 5) {
+                container.get(i).setDañado(true);
+                container.get(i).setTipoRepair("La estructura del contenedor está dañada");
+            }
         }
     }
     /**
@@ -201,21 +220,23 @@ public class Plantel extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Plantel.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Plantel().setVisible(true);
+                new PlantelPuerto().setVisible(true);
             }
         });
     }

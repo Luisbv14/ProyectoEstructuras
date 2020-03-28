@@ -17,7 +17,7 @@ public class LoginUI extends javax.swing.JFrame {
      * Creates new form Login
      */
     Usuario u = new Usuario();
-    Plantel i = new Plantel();
+    PlantelPuerto i = new PlantelPuerto();
     public LoginUI() {
         this.setLocationRelativeTo(null);
         initComponents();

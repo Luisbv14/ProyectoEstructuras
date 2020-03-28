@@ -7,22 +7,11 @@ public class Contenedor {
     private String descripCarga;
     private String ubicacion;
     private boolean dañado;
-    private String condicion;
     private String tipoRepair;
     private String estadoCapacidad;
+    private String fechaSalida;
 
     public Contenedor() {
-    }
-
-    public Contenedor(int id, String carga, String descripCarga, String ubicacion, boolean dañado, String condicion, String tipoRepair, String estadoCapacidad) {
-        this.id = id;
-        this.carga = carga;
-        this.descripCarga = descripCarga;
-        this.ubicacion = ubicacion;
-        this.dañado = dañado;
-        this.condicion = condicion;
-        this.tipoRepair = tipoRepair;
-        this.estadoCapacidad = estadoCapacidad;
     }
 
     public int getId() {
@@ -59,15 +48,7 @@ public class Contenedor {
 
     @Override
     public String toString() {
-        return "Contenedor: " + id + ", carga=" + carga + ", descripCarga=" + descripCarga + ", ubicacion=" + ubicacion + ".";
-    }
-
-    public String getCondicion() {
-        return condicion;
-    }
-
-    public void setCondicion(String condicion) {
-        this.condicion = condicion;
+        return "Contenedor: " + "id= " + id + ", carga= " + carga + ", descripCarga= " + descripCarga + ", ubicacion= " + ubicacion + ", dañado= " + dañado + ", tipoRepair= " + tipoRepair + ", estadoCapacidad= " + estadoCapacidad + ", fechaSalida= " + fechaSalida + ".";
     }
 
     public String getTipoRepair() {
@@ -92,6 +73,14 @@ public class Contenedor {
 
     public void setEstadoCapacidad(String estadoCapacidad) {
         this.estadoCapacidad = estadoCapacidad;
+    }
+
+    public String getFechaSalida() {
+        return fechaSalida;
+    }
+
+    public void setFechaSalida(String fechaSalida) {
+        this.fechaSalida = fechaSalida;
     }
     
     

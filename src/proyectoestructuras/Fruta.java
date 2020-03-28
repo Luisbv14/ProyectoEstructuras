@@ -4,23 +4,30 @@ package proyectoestructuras;
 public class Fruta {
     private String tipo;
     private int cant;
+    private boolean seco = false;
 
     public Fruta() {
         int aux =(int) (Math.random() * (3-1) + 1);
         switch(aux) {
             case 1:
+                tipo = "Naranjas";
+                seco = true;
                 break;
             case 2:
+                tipo = "Fresas";
                 break;
             case 3:
+                tipo = "Bananos";
+                seco = true;
                 break;
         }
-        this.set
+        this.setCant((int) (Math.random() * (50-20)+20));
     }
 
-    public Fruta(String tipo, int cant) {
+    public Fruta(String tipo, int cant, boolean seco) {
         this.tipo = tipo;
         this.cant = cant;
+        this.seco = seco;
     }
 
     public String getTipo() {
@@ -35,12 +42,20 @@ public class Fruta {
         return cant;
     }
 
-    public void setCant(int cant) {
+    public final void setCant(int cant) {
         this.cant = cant;
     }
 
     @Override
     public String toString() {
         return "Fruta: " + "tipo= " + tipo + ", estadoCapacidad= " + cant + ".";
+    }
+
+    public boolean isSeco() {
+        return seco;
+    }
+
+    public void setSeco(boolean seco) {
+        this.seco = seco;
     }
 }
