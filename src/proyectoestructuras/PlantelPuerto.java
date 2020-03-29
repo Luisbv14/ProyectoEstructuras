@@ -90,7 +90,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     break;
             }
             while (yearEntrada <= 1995 || mes >= 2050) {
-                yearEntrada = (int) (Math.random() * (2020 - 1) + 1);
+                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);
             }
             if (Integer.toString(mes).length() == 1) {
                 mes = 0 + mes;
@@ -103,7 +103,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
             //Inicio codigo generador de dia de salida.
             while (yearEntrada < yearSalida) {
-                yearSalida = (int) (Math.random() * (2020 - 1) + 1);
+                yearSalida = (int) (Math.random() * (2020 - 1882) + 1882);
             }
             mes = (int) (Math.random() * (12 - 1) + 1);
             switch (mes) {
