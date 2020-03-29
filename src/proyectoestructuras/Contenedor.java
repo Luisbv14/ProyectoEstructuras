@@ -10,9 +10,11 @@ public class Contenedor {
     private String tipoRepair;
     private String estadoCapacidad;
     private String fechaSalida;
+    private String fechaEntrada;
 
     public Contenedor() {
     }
+    
 
     public int getId() {
         return id;
@@ -46,11 +48,6 @@ public class Contenedor {
         this.ubicacion = ubicacion;
     }
 
-    @Override
-    public String toString() {
-        return "Contenedor: " + "id= " + id + ", carga= " + carga + ", descripCarga= " + descripCarga + ", ubicacion= " + ubicacion + ", dañado= " + dañado + ", tipoRepair= " + tipoRepair + ", estadoCapacidad= " + estadoCapacidad + ", fechaSalida= " + fechaSalida + ".";
-    }
-
     public String getTipoRepair() {
         return tipoRepair;
     }
@@ -81,6 +78,19 @@ public class Contenedor {
 
     public void setFechaSalida(String fechaSalida) {
         this.fechaSalida = fechaSalida;
+    }
+
+    public String getFechaEntrada() {
+        return fechaEntrada;
+    }
+
+    public void setFechaEntrada(String fechaEntrada) {
+        this.fechaEntrada = fechaEntrada;
+    }
+
+    @Override
+    public String toString() {
+        return "Contenedor{" + "id=" + id + ", carga=" + carga + ", descripCarga=" + descripCarga + ", ubicacion=" + ubicacion + ", da\u00f1ado=" + dañado + ", tipoRepair=" + tipoRepair + ", estadoCapacidad=" + estadoCapacidad + ", fechaSalida=" + fechaSalida + ", fechaEntrada=" + fechaEntrada + '}';
     }
     
     

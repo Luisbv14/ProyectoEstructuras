@@ -17,18 +17,22 @@ public class PlantelPuerto extends javax.swing.JFrame {
     Fruta fruit;
     Planta plants;
     Vegetal veg;
-    
+    private int dia;
+    private int mes;
+    private int yearEntrada;
+    private int yearSalida;
+
     public PlantelPuerto() {
         this.setLocationRelativeTo(null);
         initComponents();
     }
-    
+
     public void llenarContainer() {
-        for (int i = 1;i <= 50; i++) {
+        for (int i = 1; i <= 50; i++) {
             container = new LinkedList<>();
             container.get(i).setId(i);
-            int aux1 = (int) (Math.random() * (3-1)+1);
-            switch(aux1) {
+            int aux1 = (int) (Math.random() * (3 - 1) + 1);
+            switch (aux1) {
                 case 1:
                     container.get(i).setCarga((fruit = new Fruta()).getTipo());
                     container.get(i).setDescripCarga("Contiene frutas");
@@ -44,14 +48,120 @@ public class PlantelPuerto extends javax.swing.JFrame {
             }
             container.get(i).setUbicacion("Barco, importación");
             container.get(i).setEstadoCapacidad("Lleno");
+
             //Poner aqui la fecha de llegada al plantel del puerto
-            int aux2 = (int) (Math.random() * (10-1)+1);
+            mes = (int) (Math.random() * (12 - 1) + 1);
+            switch (mes) {
+                case 1:
+                    dia = (int) (Math.random() * (29 - 1) + 1);
+                    break;
+                case 2:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+                case 3:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 4:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 5:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 6:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 7:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+                case 8:
+                    dia = (int) (Math.random() * (29 - 1) + 1);
+                    break;
+                case 9:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 10:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+                case 11:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 12:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+            }
+            while (yearEntrada <= 1995 || mes >= 2050) {
+                yearEntrada = (int) (Math.random() * (2020 - 1) + 1);
+            }
+            if (Integer.toString(mes).length() == 1) {
+                mes = 0 + mes;
+            }
+            if (Integer.toString(dia).length() == 1) {
+                dia = 0 + dia;
+            }
+            container.get(i).setFechaEntrada(dia + "/" + mes + "/" + yearEntrada);
+            //fin codigo de generador de dia de llegada.
+
+            //Inicio codigo generador de dia de salida.
+            while (yearEntrada < yearSalida) {
+                yearSalida = (int) (Math.random() * (2020 - 1) + 1);
+            }
+            mes = (int) (Math.random() * (12 - 1) + 1);
+            switch (mes) {
+                case 1:
+                    dia = (int) (Math.random() * (29 - 1) + 1);
+                    break;
+                case 2:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+                case 3:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 4:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 5:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 6:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 7:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+                case 8:
+                    dia = (int) (Math.random() * (29 - 1) + 1);
+                    break;
+                case 9:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 10:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+                case 11:
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    break;
+                case 12:
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    break;
+            }
+            if (Integer.toString(mes).length() == 1) {
+                mes = 0 + mes;
+            }
+            if (Integer.toString(dia).length() == 1) {
+                dia = 0 + dia;
+            }
+            container.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);          
+            //Fin codigo de definir fecha de salida. 
+            
+            
+            int aux2 = (int) (Math.random() * (10 - 1) + 1);
             if (aux2 == 5) {
                 container.get(i).setDañado(true);
                 container.get(i).setTipoRepair("La estructura del contenedor está dañada");
             }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -159,48 +269,49 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_TallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TallerActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_TallerActionPerformed
 
     private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_CActionPerformed
 
     private void btn_Isla_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_DActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_DActionPerformed
 
     private void btn_Isla_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_BActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_BActionPerformed
 
     private void btn_Isla_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_EActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_EActionPerformed
 
     private void btn_Isla_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_FActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_FActionPerformed
 
     private void btn_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntradaActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_EntradaActionPerformed
 
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
-        
+
         System.out.println("funciona");
     }//GEN-LAST:event_btn_salidaActionPerformed
 
     private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
-        
+
         System.out.println("funciona");
+
     }//GEN-LAST:event_btn_Isla_AActionPerformed
 
     /**
