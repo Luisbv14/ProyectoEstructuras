@@ -1,6 +1,7 @@
 package proyectoestructuras;
-/* @author Luisb
- */
+/* @author Luisbv14
+
+*/
 public class Vegetal {
     private String tipo;
     private int cant;
