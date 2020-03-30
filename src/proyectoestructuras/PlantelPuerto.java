@@ -38,14 +38,14 @@ public class PlantelPuerto extends javax.swing.JFrame {
         llenarContainer();
         initComponents();
     }
-    
+
     /*Metodo encargado de asignarle toda la informacion 
     a cada uno de los contenedores*/
     public void llenarContainer() {
         for (int i = 0; i < 50; i++) {
             container = new Contenedor();
             listaContainer.add(container);
-            listaContainer.get(i).setId(i+1);
+            listaContainer.get(i).setId(i + 1);
             int aux1 = (int) (Math.random() * (3 - 1) + 1);
             switch (aux1) {
                 case 1:
@@ -62,12 +62,12 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     break;
             }
             listaContainer.get(i).setUbicacion("Barco (importación)");
-            
+
             //Le asigna a cada contenedor su situacion de cantidad de contenido.
-            int aux3 = (int) (Math.random() * (5-1)+1);
+            int aux3 = (int) (Math.random() * (5 - 1) + 1);
             if (!(aux3 == 3)) {
                 listaContainer.get(i).setEstadoCapacidad("Lleno");
-            } else { 
+            } else {
                 listaContainer.get(i).setEstadoCapacidad("Vacio");
             }
 
@@ -111,7 +111,10 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     dia = (int) (Math.random() * (31 - 1) + 1);
                     break;
             }
-                yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);
+            yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);
+            while (yearEntrada <= 1995 || mes >= 2050) {
+                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);
+            }
             if (Integer.toString(mes).length() == 1) {
                 mes = 0 + mes;
             }
@@ -125,71 +128,74 @@ public class PlantelPuerto extends javax.swing.JFrame {
             yearSalida = (int) (Math.random() * (2050 - 2019) + 2019);
             while (yearEntrada > yearSalida) {
                 yearSalida = (int) (Math.random() * (2050 - 2019) + 2019);
+                while (yearEntrada < yearSalida) {
+                    yearSalida = (int) (Math.random() * (2020 - 1882) + 1882);
+                }
+                mes = (int) (Math.random() * (12 - 1) + 1);
+                switch (mes) {
+                    case 1:
+                        dia = (int) (Math.random() * (29 - 1) + 1);
+                        break;
+                    case 2:
+                        dia = (int) (Math.random() * (31 - 1) + 1);
+                        break;
+                    case 3:
+                        dia = (int) (Math.random() * (30 - 1) + 1);
+                        break;
+                    case 4:
+                        dia = (int) (Math.random() * (30 - 1) + 1);
+                        break;
+                    case 5:
+                        dia = (int) (Math.random() * (30 - 1) + 1);
+                        break;
+                    case 6:
+                        dia = (int) (Math.random() * (30 - 1) + 1);
+                        break;
+                    case 7:
+                        dia = (int) (Math.random() * (31 - 1) + 1);
+                        break;
+                    case 8:
+                        dia = (int) (Math.random() * (29 - 1) + 1);
+                        break;
+                    case 9:
+                        dia = (int) (Math.random() * (30 - 1) + 1);
+                        break;
+                    case 10:
+                        dia = (int) (Math.random() * (31 - 1) + 1);
+                        break;
+                    case 11:
+                        dia = (int) (Math.random() * (30 - 1) + 1);
+                        break;
+                    case 12:
+                        dia = (int) (Math.random() * (31 - 1) + 1);
+                        break;
+                }
+                if (Integer.toString(mes).length() == 1) {
+                    mes = 0 + mes;
+                }
+                if (Integer.toString(dia).length() == 1) {
+                    dia = 0 + dia;
+                }
+                listaContainer.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);
+                //Fin codigo de definir fecha de salida. 
+
+                //Randomización de contenedores dañados.
+                int aux2 = (int) (Math.random() * (10 - 1) + 1);
+                if (aux2 == 5) {
+                    listaContainer.get(i).setDañado(true);
+                    listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada");
+                }
             }
-            mes = (int) (Math.random() * (12 - 1) + 1);
-            switch (mes) {
-                case 1:
-                    dia = (int) (Math.random() * (29 - 1) + 1);
-                    break;
-                case 2:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    break;
-                case 3:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    break;
-                case 4:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    break;
-                case 5:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    break;
-                case 6:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    break;
-                case 7:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    break;
-                case 8:
-                    dia = (int) (Math.random() * (29 - 1) + 1);
-                    break;
-                case 9:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    break;
-                case 10:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    break;
-                case 11:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    break;
-                case 12:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    break;
-            }
-            if (Integer.toString(mes).length() == 1) {
-                mes = 0 + mes;
-            }
-            if (Integer.toString(dia).length() == 1) {
-                dia = 0 + dia;
-            }
-            listaContainer.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);          
-            //Fin codigo de definir fecha de salida. 
-            
-            //Randomización de contenedores dañados.
-            int aux2 = (int) (Math.random() * (10 - 1) + 1);
-            if (aux2 == 5) {
-                listaContainer.get(i).setDañado(true);
-                listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada");
-            }
+            containerIslas();
         }
-        containerIslas();
     }
-    
+
     /*Metodo que verifica el contenido de los contenedores 
     y los agrega a su respectiva isla. */
     public void containerIslas() {
         for (int i = 0; i < 50; i++) {
             if (listaContainer.get(i).getCarga().equals("Frutas")) {
-                
+
             }
         }
     }
