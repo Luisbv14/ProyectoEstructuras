@@ -90,7 +90,7 @@ public class Contenedor {
 
     @Override
     public String toString() {
-        return "Contenedor{" + "id=" + id + ", carga=" + carga + ", descripCarga=" + descripCarga + ", ubicacion=" + ubicacion + ", da\u00f1ado=" + dañado + ", tipoRepair=" + tipoRepair + ", estadoCapacidad=" + estadoCapacidad + ", fechaSalida=" + fechaSalida + ", fechaEntrada=" + fechaEntrada + '}';
+        return "Contenedor: " + "id= " + id + ", carga= " + carga + ", descripCarga= " + descripCarga + ", ubicacion= " + ubicacion + ", dañado= " + dañado + ", tipoRepair= " + tipoRepair + ", estadoCapacidad= " + estadoCapacidad + ", fechaSalida= " + fechaSalida + ", fechaEntrada= " + fechaEntrada + ".";
     }
     
     

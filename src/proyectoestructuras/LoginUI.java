@@ -19,7 +19,7 @@ public class LoginUI extends javax.swing.JFrame {
     Usuario u = new Usuario();
     PlantelPuerto i = new PlantelPuerto();
     public LoginUI() {
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
         initComponents();
         this.getRootPane().setDefaultButton(btn_login);
     }

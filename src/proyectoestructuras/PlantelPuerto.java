@@ -5,7 +5,9 @@
  */
 package proyectoestructuras;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  *
@@ -13,7 +15,15 @@ import java.util.LinkedList;
  */
 public class PlantelPuerto extends javax.swing.JFrame {
 
-    LinkedList<Contenedor> container;
+    //Creacion de todas las variables necesarias
+    LinkedList<Contenedor> listaContainer = new LinkedList<>();
+    Stack<Contenedor> islaA = new Stack();
+    Stack<Contenedor> islaB = new Stack();
+    Stack<Contenedor> islaC = new Stack();
+    Stack<Contenedor> islaD = new Stack();
+    Stack<Contenedor> islaE = new Stack();
+    Stack<Contenedor> islaF = new Stack();
+    Contenedor container;
     Fruta fruit;
     Planta plants;
     Vegetal veg;
@@ -22,32 +32,44 @@ public class PlantelPuerto extends javax.swing.JFrame {
     private int yearEntrada;
     private int yearSalida;
 
+    //Metodo de inicio
     public PlantelPuerto() {
-        this.setLocationRelativeTo(null);
+//        this.setLocationRelativeTo(null);
+        llenarContainer();
         initComponents();
     }
-
+    
+    /*Metodo encargado de asignarle toda la informacion 
+    a cada uno de los contenedores*/
     public void llenarContainer() {
-        for (int i = 1; i <= 50; i++) {
-            container = new LinkedList<>();
-            container.get(i).setId(i);
+        for (int i = 0; i < 50; i++) {
+            container = new Contenedor();
+            listaContainer.add(container);
+            listaContainer.get(i).setId(i+1);
             int aux1 = (int) (Math.random() * (3 - 1) + 1);
             switch (aux1) {
                 case 1:
-                    container.get(i).setCarga((fruit = new Fruta()).getTipo());
-                    container.get(i).setDescripCarga("Contiene frutas");
+                    listaContainer.get(i).setCarga((fruit = new Fruta()).getTipo());
+                    listaContainer.get(i).setDescripCarga("Contiene frutas");
                     break;
                 case 2:
-                    container.get(i).setCarga((plants = new Planta()).getTipo());
-                    container.get(i).setDescripCarga("Contiene plantas");
+                    listaContainer.get(i).setCarga((plants = new Planta()).getTipo());
+                    listaContainer.get(i).setDescripCarga("Contiene plantas");
                     break;
                 case 3:
-                    container.get(i).setCarga((veg = new Vegetal()).getTipo());
-                    container.get(i).setDescripCarga("Contiene vegetales");
+                    listaContainer.get(i).setCarga((veg = new Vegetal()).getTipo());
+                    listaContainer.get(i).setDescripCarga("Contiene vegetales");
                     break;
             }
-            container.get(i).setUbicacion("Barco, importación");
-            container.get(i).setEstadoCapacidad("Lleno");
+            listaContainer.get(i).setUbicacion("Barco (importación)");
+            
+            //Le asigna a cada contenedor su situacion de cantidad de contenido.
+            int aux3 = (int) (Math.random() * (5-1)+1);
+            if (!(aux3 == 3)) {
+                listaContainer.get(i).setEstadoCapacidad("Lleno");
+            } else { 
+                listaContainer.get(i).setEstadoCapacidad("Vacio");
+            }
 
             //Poner aqui la fecha de llegada al plantel del puerto
             mes = (int) (Math.random() * (12 - 1) + 1);
@@ -89,21 +111,20 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     dia = (int) (Math.random() * (31 - 1) + 1);
                     break;
             }
-            while (yearEntrada <= 1995 || mes >= 2050) {
-                yearEntrada = (int) (Math.random() * (2020 - 1) + 1);
-            }
+                yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);
             if (Integer.toString(mes).length() == 1) {
                 mes = 0 + mes;
             }
             if (Integer.toString(dia).length() == 1) {
                 dia = 0 + dia;
             }
-            container.get(i).setFechaEntrada(dia + "/" + mes + "/" + yearEntrada);
-            //fin codigo de generador de dia de llegada.
+            listaContainer.get(i).setFechaEntrada(dia + "/" + mes + "/" + yearEntrada);
+            //fin codigo de generador de dia y mes de llegada.
 
             //Inicio codigo generador de dia de salida.
-            while (yearEntrada < yearSalida) {
-                yearSalida = (int) (Math.random() * (2020 - 1) + 1);
+            yearSalida = (int) (Math.random() * (2050 - 2019) + 2019);
+            while (yearEntrada > yearSalida) {
+                yearSalida = (int) (Math.random() * (2050 - 2019) + 2019);
             }
             mes = (int) (Math.random() * (12 - 1) + 1);
             switch (mes) {
@@ -150,14 +171,25 @@ public class PlantelPuerto extends javax.swing.JFrame {
             if (Integer.toString(dia).length() == 1) {
                 dia = 0 + dia;
             }
-            container.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);          
+            listaContainer.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);          
             //Fin codigo de definir fecha de salida. 
             
-            
+            //Randomización de contenedores dañados.
             int aux2 = (int) (Math.random() * (10 - 1) + 1);
             if (aux2 == 5) {
-                container.get(i).setDañado(true);
-                container.get(i).setTipoRepair("La estructura del contenedor está dañada");
+                listaContainer.get(i).setDañado(true);
+                listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada");
+            }
+        }
+        containerIslas();
+    }
+    
+    /*Metodo que verifica el contenido de los contenedores 
+    y los agrega a su respectiva isla. */
+    public void containerIslas() {
+        for (int i = 0; i < 50; i++) {
+            if (listaContainer.get(i).getCarga().equals("Frutas")) {
+                
             }
         }
     }
@@ -269,8 +301,10 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_TallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TallerActionPerformed
-
         System.out.println("funciona");
+        for (int i = 0; i < 50; i++) {
+            System.out.println(listaContainer.get(i).toString());
+        }
     }//GEN-LAST:event_btn_TallerActionPerformed
 
     private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
