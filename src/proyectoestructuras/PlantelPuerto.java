@@ -17,12 +17,24 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
     //Creacion de todas las variables necesarias
     LinkedList<Contenedor> listaContainer = new LinkedList<>();
-    Stack<Contenedor> islaA = new Stack();
-    Stack<Contenedor> islaB = new Stack();
-    Stack<Contenedor> islaC = new Stack();
-    Stack<Contenedor> islaD = new Stack();
-    Stack<Contenedor> islaE = new Stack();
-    Stack<Contenedor> islaF = new Stack();
+    LinkedList<Contenedor> almacenFiscal = new LinkedList<>();
+    LinkedList<Contenedor> finca = new LinkedList<>();
+
+    ArrayList<Stack> islaA;
+
+    Stack stkA = new Stack();
+    Stack stkB = new Stack();
+    Stack stkC = new Stack();
+    Stack stkD = new Stack();
+    Stack stkE = new Stack();
+    Stack stkF = new Stack();
+
+//    Contenedor[] islaA = new Contenedor[8];
+//    Contenedor[] islaB = new Contenedor[8];
+//    Contenedor[] islaC = new Contenedor[8];
+//    Contenedor[] islaD = new Contenedor[8];
+//    Contenedor[] islaE = new Contenedor[8];
+//    Contenedor[] islaF = new Contenedor[8];
     Contenedor container;
     Fruta fruit;
     Planta plants;
@@ -46,31 +58,29 @@ public class PlantelPuerto extends javax.swing.JFrame {
             container = new Contenedor();
             listaContainer.add(container);
             listaContainer.get(i).setId(i + 1);
-            int aux1 = (int) (Math.random() * (3 - 1) + 1);
+            int aux1 = (int) (Math.random() * (4 - 1) + 1);
             switch (aux1) {
                 case 1:
                     listaContainer.get(i).setCarga((fruit = new Fruta()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene frutas");
+                    listaContainer.get(i).setEstadoCapacidad("lleno");
                     break;
                 case 2:
                     listaContainer.get(i).setCarga((plants = new Planta()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene plantas");
+                    listaContainer.get(i).setEstadoCapacidad("lleno");
                     break;
                 case 3:
                     listaContainer.get(i).setCarga((veg = new Vegetal()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene vegetales");
+                    listaContainer.get(i).setEstadoCapacidad("lleno");
+                    break;
+                case 4:
+                    listaContainer.get(i).setEstadoCapacidad("vacío");
                     break;
             }
+
             listaContainer.get(i).setUbicacion("Barco (importación)");
-
-            //Le asigna a cada contenedor su situacion de cantidad de contenido.
-            int aux3 = (int) (Math.random() * (5 - 1) + 1);
-            if (!(aux3 == 3)) {
-                listaContainer.get(i).setEstadoCapacidad("Lleno");
-            } else {
-                listaContainer.get(i).setEstadoCapacidad("Vacio");
-            }
-
             //Poner aqui la fecha de llegada al plantel del puerto
             mes = (int) (Math.random() * (12 - 1) + 1);
             switch (mes) {
@@ -124,13 +134,19 @@ public class PlantelPuerto extends javax.swing.JFrame {
             listaContainer.get(i).setFechaEntrada(dia + "/" + mes + "/" + yearEntrada);
             //fin codigo de generador de dia y mes de llegada.
 
+            
             //Inicio codigo generador de dia de salida.
-            yearSalida = (int) (Math.random() * (2050 - 2019) + 2019);
+            
+            /*cambiar esta parte
+            yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
             while (yearEntrada > yearSalida) {
-                yearSalida = (int) (Math.random() * (2050 - 2019) + 2019);
+                yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
+                System.out.println("Buscando fecha while1");
                 while (yearEntrada < yearSalida) {
                     yearSalida = (int) (Math.random() * (2020 - 1882) + 1882);
+                    System.out.println("buscando fecha while2");
                 }
+            
                 mes = (int) (Math.random() * (12 - 1) + 1);
                 switch (mes) {
                     case 1:
@@ -183,10 +199,12 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 int aux2 = (int) (Math.random() * (10 - 1) + 1);
                 if (aux2 == 5) {
                     listaContainer.get(i).setDañado(true);
-                    listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada");
+                    listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada"); //Tambien refrigeracion
                 }
             }
-            containerIslas();
+            */
+
+//            containerIslas();
         }
     }
 
@@ -194,8 +212,12 @@ public class PlantelPuerto extends javax.swing.JFrame {
     y los agrega a su respectiva isla. */
     public void containerIslas() {
         for (int i = 0; i < 50; i++) {
-            if (listaContainer.get(i).getCarga().equals("Frutas")) {
+            if (listaContainer.get(i).getCarga().equals("Fresas")) {
+                /*iterar con un for por la isla y verificar si el stack esta lleno, 
+                si no lo esta lo agrega, si si lo esta pasa al siguiente*/
 
+                stkA.add(listaContainer.get(i));
+                islaA.add(stkA);
             }
         }
     }
@@ -368,16 +390,24 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PlantelPuerto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PlantelPuerto.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>

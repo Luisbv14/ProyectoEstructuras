@@ -1,4 +1,7 @@
 package proyectoestructuras;
+
+import java.util.Stack;
+
 /* @author Luisb
  */
 public class Contenedor {
@@ -15,6 +18,8 @@ public class Contenedor {
     public Contenedor() {
     }
     
+    public Contenedor(Stack stack) {
+    }
 
     public int getId() {
         return id;
