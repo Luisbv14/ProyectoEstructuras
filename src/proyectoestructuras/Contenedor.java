@@ -16,18 +16,6 @@ public class Contenedor {
     private String fechaEntrada;
 
     public Contenedor() {
-        int aux =(int) (Math.random() * (3-1) + 1);
-        switch(aux) {
-            case 1:
-                tipoRepair = "eliminacion de corrosion";
-                break;
-            case 2:
-                tipoRepair = "correcion de imperfercciones";
-                break;
-            case 3:
-                tipoRepair = "Pintura anti-corrosion";
-                break;
-        }
     }
     
     public Contenedor(Stack stack) {

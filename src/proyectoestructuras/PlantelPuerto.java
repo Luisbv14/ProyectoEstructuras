@@ -65,7 +65,8 @@ public class PlantelPuerto extends javax.swing.JFrame {
             container = new Contenedor();
             listaContainer.add(container);
             listaContainer.get(i).setId(i + 1);
-            int aux1 = (int) (Math.random() * (5 - 1) + 1);
+            int aux1 = (int) (Math.random() * (5-1) + 1);
+            System.out.println("Opcion que elige el contenedor " + aux1);
             switch (aux1) {
                 case 1:
                     listaContainer.get(i).setCarga((fruit = new Fruta()).getTipo());
@@ -88,13 +89,24 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     listaContainer.get(i).setEstadoCapacidad("Vacío");
                     break;
                 case 5:
-                   
                     listaContainer.get(i).setDañado(true);
-                   listaContainer.get(i).setTipoRepair((container = new Contenedor()).getTipoRepair());
+                    int aux = (int) (Math.random() * (3 - 1) + 1);
+                    switch (aux) {
+                        case 1:
+                            listaContainer.get(i).setTipoRepair("eliminacion de corrosion");
+                            break;
+                        case 2:
+                            listaContainer.get(i).setTipoRepair("correcion de imperfercciones");
+                            break;
+                        case 3:
+                            listaContainer.get(i).setTipoRepair("Pintura anti-corrosion");
+                            break;
+                    }
                     break;
-
+                default:
+                    System.out.println("aux1 cayo" + aux1);
+                    break;
             }
-
             listaContainer.get(i).setUbicacion("Barco (importación)");
             //Poner aqui la fecha de llegada al plantel del puerto
             mes = (int) (Math.random() * (12 - 1) + 1);
@@ -150,7 +162,6 @@ public class PlantelPuerto extends javax.swing.JFrame {
             //fin codigo de generador de dia y mes de llegada.
 
             //Inicio codigo generador de dia de salida.
-            
             /*cambiar esta parte
             yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
             while (yearEntrada > yearSalida) {
@@ -224,7 +235,8 @@ public class PlantelPuerto extends javax.swing.JFrame {
     /*Metodo que verifica el contenido de los contenedores 
     y los agrega a su respectiva isla. */
     public void containerIslas() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 50; i++) {
+            System.out.println("La i es = " + i);
             if (listaContainer.get(i).getCarga().equals("Banano")) {
                 /*iterar con un for por la isla y verificar si el stack esta lleno, 
                 si no lo esta lo agrega, si si lo esta pasa al siguiente*/
@@ -252,8 +264,8 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 taller.add(listaContainer.get(i));
             }
         }
-        System.out.println("");
-        System.out.println("");
+//        System.out.println("");
+//        System.out.println("");
     }
 
     /**
@@ -398,7 +410,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_Isla_FActionPerformed
 
     private void btn_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntradaActionPerformed
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < listaContainer.size(); i++) {
             System.out.println(listaContainer.get(i).toString());
         }
     }//GEN-LAST:event_btn_EntradaActionPerformed
