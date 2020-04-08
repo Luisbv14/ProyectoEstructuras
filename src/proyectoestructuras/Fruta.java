@@ -11,14 +11,12 @@ public class Fruta {
         switch(aux) {
             case 1:
                 tipo = "Naranjas";
-                seco = true;
                 break;
             case 2:
                 tipo = "Fresas";
                 break;
             case 3:
                 tipo = "Bananos";
-                seco = true;
                 break;
         }
         this.setCant((int) (Math.random() * (50-20)+20));

@@ -6,7 +6,6 @@
 package proyectoestructuras;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -151,6 +150,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
             //fin codigo de generador de dia y mes de llegada.
 
             //Inicio codigo generador de dia de salida.
+            
             /*cambiar esta parte
             yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
             while (yearEntrada > yearSalida) {
@@ -217,8 +217,8 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 }
             }
              */
-            containerIslas();
         }
+        containerIslas();
     }
 
     /*Metodo que verifica el contenido de los contenedores 
