@@ -60,7 +60,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         lb_contraseña.setText("Contraseña");
         jPanel1.add(lb_contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
-        jPanel1.add(lb_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 210, 30));
+        jPanel1.add(lb_error, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 330, 30));
         jPanel1.add(pwf_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 210, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 280));

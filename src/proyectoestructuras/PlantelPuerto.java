@@ -6,6 +6,7 @@
 package proyectoestructuras;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Stack;
 
@@ -20,7 +21,13 @@ public class PlantelPuerto extends javax.swing.JFrame {
     LinkedList<Contenedor> almacenFiscal = new LinkedList<>();
     LinkedList<Contenedor> finca = new LinkedList<>();
 
-    ArrayList<Stack> islaA;
+    ArrayList<Stack> islaA = new ArrayList<Stack>();
+    ArrayList<Stack> islaB = new ArrayList<Stack>();
+    ArrayList<Stack> islaC = new ArrayList<Stack>();
+    ArrayList<Stack> islaD = new ArrayList<Stack>();
+    ArrayList<Stack> islaE = new ArrayList<Stack>();
+    ArrayList<Stack> islaF = new ArrayList<Stack>();
+    ArrayList taller = new ArrayList();
 
     Stack stkA = new Stack();
     Stack stkB = new Stack();
@@ -49,6 +56,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
 //        this.setLocationRelativeTo(null);
         llenarContainer();
         initComponents();
+
     }
 
     /*Metodo encargado de asignarle toda la informacion 
@@ -58,7 +66,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
             container = new Contenedor();
             listaContainer.add(container);
             listaContainer.get(i).setId(i + 1);
-            int aux1 = (int) (Math.random() * (4 - 1) + 1);
+            int aux1 = (int) (Math.random() * (5 - 1) + 1);
             switch (aux1) {
                 case 1:
                     listaContainer.get(i).setCarga((fruit = new Fruta()).getTipo());
@@ -76,8 +84,16 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     listaContainer.get(i).setEstadoCapacidad("lleno");
                     break;
                 case 4:
-                    listaContainer.get(i).setEstadoCapacidad("vacío");
+                    listaContainer.get(i).setCarga("Vacío");
+                    listaContainer.get(i).setDescripCarga("Vacío");
+                    listaContainer.get(i).setEstadoCapacidad("Vacío");
                     break;
+                case 5:
+                   
+                    listaContainer.get(i).setDañado(true);
+                   listaContainer.get(i).setTipoRepair((container = new Contenedor()).getTipoRepair());
+                    break;
+
             }
 
             listaContainer.get(i).setUbicacion("Barco (importación)");
@@ -134,9 +150,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
             listaContainer.get(i).setFechaEntrada(dia + "/" + mes + "/" + yearEntrada);
             //fin codigo de generador de dia y mes de llegada.
 
-            
             //Inicio codigo generador de dia de salida.
-            
             /*cambiar esta parte
             yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
             while (yearEntrada > yearSalida) {
@@ -202,24 +216,44 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada"); //Tambien refrigeracion
                 }
             }
-            */
-
-//            containerIslas();
+             */
+            containerIslas();
         }
     }
 
     /*Metodo que verifica el contenido de los contenedores 
     y los agrega a su respectiva isla. */
     public void containerIslas() {
-        for (int i = 0; i < 50; i++) {
-            if (listaContainer.get(i).getCarga().equals("Fresas")) {
+        for (int i = 0; i < 5; i++) {
+            if (listaContainer.get(i).getCarga().equals("Banano")) {
                 /*iterar con un for por la isla y verificar si el stack esta lleno, 
                 si no lo esta lo agrega, si si lo esta pasa al siguiente*/
-
                 stkA.add(listaContainer.get(i));
                 islaA.add(stkA);
+            } else if (listaContainer.get(i).getCarga().equals("Arroz")) {
+                stkF.add(listaContainer.get(i));
+                islaF.add(stkF);
+
+            } else if (listaContainer.get(i).getDescripCarga().equals("Contiene frutas")) {
+                stkB.add(listaContainer.get(i));
+                islaB.add(stkB);
+
+            } else if (listaContainer.get(i).getDescripCarga().equals("Contiene vegetales")) {
+                stkC.add(listaContainer.get(i));
+                islaC.add(stkC);
+            } else if (listaContainer.get(i).getDescripCarga().equals("Contiene plantas")) {
+                stkD.add(listaContainer.get(i));
+                islaD.add(stkD);
+            } else if (listaContainer.get(i).getDescripCarga().equals("Vacío")) {
+                stkE.add(listaContainer.get(i));
+                islaE.add(stkE);
+
+            } else if (listaContainer.get(i).isDañado() == true) {
+                taller.add(listaContainer.get(i));
             }
         }
+        System.out.println("");
+        System.out.println("");
     }
 
     /**
@@ -329,50 +363,54 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_TallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TallerActionPerformed
-        System.out.println("funciona");
-        for (int i = 0; i < 50; i++) {
-            System.out.println(listaContainer.get(i).toString());
-        }
+        System.out.println("");
+
     }//GEN-LAST:event_btn_TallerActionPerformed
 
     private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
+        System.out.println(islaC.toString());
+        System.out.println(islaC.size());
 
-        System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_CActionPerformed
 
     private void btn_Isla_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_DActionPerformed
+        System.out.println(islaD.toString());
+        System.out.println(islaD.size());
 
-        System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_DActionPerformed
 
     private void btn_Isla_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_BActionPerformed
+        System.out.println(islaB.toString());
+        System.out.println(islaB.size());
 
-        System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_BActionPerformed
 
     private void btn_Isla_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_EActionPerformed
+        System.out.println(islaE.toString());
+        System.out.println(islaE.size());
 
-        System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_EActionPerformed
 
     private void btn_Isla_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_FActionPerformed
+        System.out.println(islaF.toString());
+        System.out.println(islaF.size());
 
-        System.out.println("funciona");
     }//GEN-LAST:event_btn_Isla_FActionPerformed
 
     private void btn_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntradaActionPerformed
-
-        System.out.println("funciona");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(listaContainer.get(i).toString());
+        }
     }//GEN-LAST:event_btn_EntradaActionPerformed
 
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
 
-        System.out.println("funciona");
+
     }//GEN-LAST:event_btn_salidaActionPerformed
 
     private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
-
-        System.out.println("funciona");
+        System.out.println(islaA.toString());
+        System.out.println(islaA.size());
 
     }//GEN-LAST:event_btn_Isla_AActionPerformed
 
