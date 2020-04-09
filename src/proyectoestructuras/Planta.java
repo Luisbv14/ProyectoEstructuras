@@ -6,7 +6,7 @@ public class Planta {
     private int cant;
 
     public Planta() {
-        int aux =(int) (Math.random() * (3-1) + 1);
+        int aux =(int) (Math.random() * (4-1) + 1);
         switch(aux) {
             case 1:
                 tipo = "Orquídeas";
@@ -18,7 +18,7 @@ public class Planta {
                 tipo = "Romero";
                 break;
         }
-        this.setCant((int) (Math.random() * (50-20)+20));
+        this.setCant((int) (Math.random() * (51-20)+20));
     }
 
     public Planta(String tipo, int cant) {

@@ -19,6 +19,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
     LinkedList<Contenedor> listaContainer = new LinkedList<>();
     LinkedList<Contenedor> almacenFiscal = new LinkedList<>();
     LinkedList<Contenedor> finca = new LinkedList<>();
+    private int tamañoListaContainer = 50;
 
     ArrayList<Stack> islaA = new ArrayList<Stack>();
     ArrayList<Stack> islaB = new ArrayList<Stack>();
@@ -61,47 +62,36 @@ public class PlantelPuerto extends javax.swing.JFrame {
     /*Metodo encargado de asignarle toda la informacion 
     a cada uno de los contenedores*/
     public void llenarContainer() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < tamañoListaContainer; i++) {
             container = new Contenedor();
             listaContainer.add(container);
             listaContainer.get(i).setId(i + 1);
-            int aux1 = (int) (Math.random() * (5-1) + 1);
+            int aux1 = (int) (Math.random() * (5 - 1) + 1);
             System.out.println("Opcion que elige el contenedor " + aux1);
             switch (aux1) {
                 case 1:
                     listaContainer.get(i).setCarga((fruit = new Fruta()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene frutas");
                     listaContainer.get(i).setEstadoCapacidad("lleno");
+                    genDañado(i);
                     break;
                 case 2:
                     listaContainer.get(i).setCarga((plants = new Planta()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene plantas");
                     listaContainer.get(i).setEstadoCapacidad("lleno");
+                    genDañado(i);
                     break;
                 case 3:
                     listaContainer.get(i).setCarga((veg = new Vegetal()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene vegetales");
                     listaContainer.get(i).setEstadoCapacidad("lleno");
+                    genDañado(i);
                     break;
                 case 4:
                     listaContainer.get(i).setCarga("Vacío");
                     listaContainer.get(i).setDescripCarga("Vacío");
                     listaContainer.get(i).setEstadoCapacidad("Vacío");
-                    break;
-                case 5:
-                    listaContainer.get(i).setDañado(true);
-                    int aux = (int) (Math.random() * (3 - 1) + 1);
-                    switch (aux) {
-                        case 1:
-                            listaContainer.get(i).setTipoRepair("eliminacion de corrosion");
-                            break;
-                        case 2:
-                            listaContainer.get(i).setTipoRepair("correcion de imperfercciones");
-                            break;
-                        case 3:
-                            listaContainer.get(i).setTipoRepair("Pintura anti-corrosion");
-                            break;
-                    }
+                    genDañado(i);
                     break;
                 default:
                     System.out.println("aux1 cayo" + aux1);
@@ -113,44 +103,60 @@ public class PlantelPuerto extends javax.swing.JFrame {
             switch (mes) {
                 case 1:
                     dia = (int) (Math.random() * (29 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 2:
                     dia = (int) (Math.random() * (31 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 3:
                     dia = (int) (Math.random() * (30 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 4:
                     dia = (int) (Math.random() * (30 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 5:
                     dia = (int) (Math.random() * (30 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 6:
                     dia = (int) (Math.random() * (30 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 7:
                     dia = (int) (Math.random() * (31 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 8:
                     dia = (int) (Math.random() * (29 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 9:
                     dia = (int) (Math.random() * (30 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 10:
                     dia = (int) (Math.random() * (31 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 11:
                     dia = (int) (Math.random() * (30 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
                 case 12:
                     dia = (int) (Math.random() * (31 - 1) + 1);
+                     //Cambiar los maximos de los mathrandom
                     break;
             }
-            yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);
+             //Cambiar los maximos de los mathrandom
+            yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);  //Cambiar los maximos de los mathrandom
+             //Cambiar los maximos de los mathrandom
             while (yearEntrada <= 1995 || mes >= 2050) {
-                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);
+                 //Cambiar los maximos de los mathrandom
+                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);  //Cambiar los maximos de los mathrandom
+                 //Cambiar los maximos de los mathrandom
             }
             if (Integer.toString(mes).length() == 1) {
                 mes = 0 + mes;
@@ -232,10 +238,36 @@ public class PlantelPuerto extends javax.swing.JFrame {
         containerIslas();
     }
 
+    /*Metodo que hace que los contenedores esten dañados
+     */
+    public void genDañado(int i) {
+        int aux3 = (int) (Math.random() * (3 - 1) + 1);
+        switch (aux3) {
+            case 1:
+                listaContainer.get(i).setDañado(false);
+                break;
+            case 2:
+                listaContainer.get(i).setDañado(true);
+                int aux = (int) (Math.random() * (4 - 1) + 1);
+                switch (aux) {
+                    case 1:
+                        listaContainer.get(i).setTipoRepair("eliminacion de corrosion");
+                        break;
+                    case 2:
+                        listaContainer.get(i).setTipoRepair("correcion de imperfercciones");
+                        break;
+                    case 3:
+                        listaContainer.get(i).setTipoRepair("Pintura anti-corrosion");
+                        break;
+                }
+                break;
+        }
+    }
+
     /*Metodo que verifica el contenido de los contenedores 
     y los agrega a su respectiva isla. */
     public void containerIslas() {
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < tamañoListaContainer; i++) {
             System.out.println("La i es = " + i);
             if (listaContainer.get(i).getCarga().equals("Banano")) {
                 /*iterar con un for por la isla y verificar si el stack esta lleno, 
@@ -375,48 +407,50 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_TallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TallerActionPerformed
+        System.out.println(taller.toString());
+        System.out.println(taller.size());
         System.out.println("");
-
     }//GEN-LAST:event_btn_TallerActionPerformed
 
     private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
         System.out.println(islaC.toString());
         System.out.println(islaC.size());
-
+        System.out.println("");
     }//GEN-LAST:event_btn_Isla_CActionPerformed
 
     private void btn_Isla_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_DActionPerformed
         System.out.println(islaD.toString());
         System.out.println(islaD.size());
-
+        System.out.println("");
     }//GEN-LAST:event_btn_Isla_DActionPerformed
 
     private void btn_Isla_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_BActionPerformed
         System.out.println(islaB.toString());
         System.out.println(islaB.size());
-
+        System.out.println("");
     }//GEN-LAST:event_btn_Isla_BActionPerformed
 
     private void btn_Isla_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_EActionPerformed
         System.out.println(islaE.toString());
         System.out.println(islaE.size());
-
+        System.out.println("");
     }//GEN-LAST:event_btn_Isla_EActionPerformed
 
     private void btn_Isla_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_FActionPerformed
         System.out.println(islaF.toString());
         System.out.println(islaF.size());
-
+        System.out.println("");
     }//GEN-LAST:event_btn_Isla_FActionPerformed
 
     private void btn_EntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_EntradaActionPerformed
-        for (int i = 0; i < listaContainer.size(); i++) {
+        for (int i = 0; i < tamañoListaContainer; i++) {
             System.out.println(listaContainer.get(i).toString());
         }
+        System.out.println("");
     }//GEN-LAST:event_btn_EntradaActionPerformed
 
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
-
+        System.out.println("SoyLaSalida");
 
     }//GEN-LAST:event_btn_salidaActionPerformed
 

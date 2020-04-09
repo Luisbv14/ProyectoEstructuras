@@ -7,7 +7,7 @@ public class Fruta {
     private boolean seco = false;
 
     public Fruta() {
-        int aux =(int) (Math.random() * (3-1) + 1);
+        int aux =(int) (Math.random() * (4-1) + 1);
         switch(aux) {
             case 1:
                 tipo = "Naranjas";
@@ -19,7 +19,7 @@ public class Fruta {
                 tipo = "Bananos";
                 break;
         }
-        this.setCant((int) (Math.random() * (50-20)+20));
+        this.setCant((int) (Math.random() * (51-20)+20));
     }
 
     public Fruta(String tipo, int cant, boolean seco) {
