@@ -8,13 +8,13 @@ public class Fruta {
 
     public Fruta() {
         int aux =(int) (Math.random() * (4-1) + 1);
-        System.out.println("Fruta aux = " + aux);
+//        System.out.println("Fruta aux = " + aux);
         switch(aux) {
             case 1:
                 tipo = "Naranjas";
                 break;
             case 2:
-                tipo = "Fresas";
+                tipo = "Limón";
                 break;
             case 3:
                 tipo = "Bananos";

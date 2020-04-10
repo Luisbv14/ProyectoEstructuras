@@ -8,6 +8,7 @@ package proyectoestructuras;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Stack;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -67,34 +68,38 @@ public class PlantelPuerto extends javax.swing.JFrame {
             listaContainer.add(container);
             listaContainer.get(i).setId(i + 1);
             int aux1 = (int) (Math.random() * (5 - 1) + 1);
-            System.out.println("Opcion que elige el contenedor " + aux1);
+//            System.out.println("Opcion que elige el contenedor " + aux1);
             switch (aux1) {
                 case 1:
                     listaContainer.get(i).setCarga((fruit = new Fruta()).getTipo());
-                    listaContainer.get(i).setDescripCarga("Contiene frutas");
+                    listaContainer.get(i).setDescripCarga("Contiene frutas citricas");
                     listaContainer.get(i).setEstadoCapacidad("lleno");
+                    listaContainer.get(i).setUbicacion("Isla B");
                     genDañado(i);
                     break;
                 case 2:
                     listaContainer.get(i).setCarga((plants = new Planta()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene plantas");
                     listaContainer.get(i).setEstadoCapacidad("lleno");
+                    listaContainer.get(i).setUbicacion("Isla D");
                     genDañado(i);
                     break;
                 case 3:
                     listaContainer.get(i).setCarga((veg = new Vegetal()).getTipo());
                     listaContainer.get(i).setDescripCarga("Contiene vegetales");
                     listaContainer.get(i).setEstadoCapacidad("lleno");
+                    listaContainer.get(i).setUbicacion("Isla C");
                     genDañado(i);
                     break;
                 case 4:
                     listaContainer.get(i).setCarga("Vacío");
                     listaContainer.get(i).setDescripCarga("Vacío");
-                    listaContainer.get(i).setEstadoCapacidad("Vacío");
+                    listaContainer.get(i).setEstadoCapacidad("Vacio");
+                    listaContainer.get(i).setUbicacion("Isla E");
                     genDañado(i);
                     break;
                 default:
-                    System.out.println("aux1 cayo" + aux1);
+//                    System.out.println("aux1 cayo" + aux1);
                     break;
             }
             listaContainer.get(i).setUbicacion("Barco (importación)");
@@ -280,37 +285,43 @@ public class PlantelPuerto extends javax.swing.JFrame {
                         stkA.add(listaContainer.get(i));
                     }
                     islaA.add(stkA);
-                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla A");
+//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla A");
                 } else if (listaContainer.get(i).getCarga().equals("Arroz")) {
+                    listaContainer.get(i).setUbicacion("Isla F");
                     for (int j = 0; j < 5; j++) {
                         stkF.add(listaContainer.get(i));
                     }
                     islaF.add(stkF);
-                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla F");
-                } else if (listaContainer.get(i).getDescripCarga().equals("Contiene frutas")) {
+//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla F");
+                    System.out.println("Se llenó uno de los stacks de la isla F");
+                } else if (listaContainer.get(i).getDescripCarga().equals("Contiene frutas citricas")) {
                     for (int j = 0; j < 3; j++) {
                         stkB.add(listaContainer.get(i));
                     }
                     islaB.add(stkB);
-                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla B");
+//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla B");
+                    System.out.println("Se llenó uno de los stacks de la isla B");
                 } else if (listaContainer.get(i).getDescripCarga().equals("Contiene vegetales")) {
                     for (int j = 0; j < 3; j++) {
                         stkC.add(listaContainer.get(i));
                     }
                     islaC.add(stkC);
-                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla C");
+//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla C");
+                    System.out.println("Se llenó uno de los stacks de la isla C");
                 } else if (listaContainer.get(i).getDescripCarga().equals("Contiene plantas")) {
                     for (int j = 0; j < 3; j++) {
                         stkD.add(listaContainer.get(i));
                     }
                     islaD.add(stkD);
-                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla D");
-                } else if (listaContainer.get(i).getDescripCarga().equals("Vacío")) {
+//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla D");
+                    System.out.println("Se llenó uno de los stacks de la isla D");
+                } else if (listaContainer.get(i).getDescripCarga().equals("Vacio")) {
                     for (int j = 0; j < 6; j++) {
                         stkE.add(listaContainer.get(i));
                     }
                     islaE.add(stkE);
-                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla E");
+//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla E");
+                    System.out.println("Se llenó uno de los stacks de la isla E");
                 } else if (listaContainer.get(i).isDañado() == true) {
                     taller.add(listaContainer.get(i));
                 }
@@ -323,13 +334,13 @@ public class PlantelPuerto extends javax.swing.JFrame {
     /*
     Metodo que se encarga de buscar un contenedor tomando como argumento el id del contenedor
      */
-//    public Contenedor buscar() {
-//        Contenedor containerTemp;
-//        for (int i = 0; i < 10; i++) {
-//            containerTemp = listaContainer.get(i).
-//        }
-//        return containerTemp;
-//    }
+    public String buscar(int idSearch) {
+        String containerUbicacion = "";
+        for (int i = 0; i < 10; i++) {
+            containerUbicacion = listaContainer.get(i).getUbicacion();
+        }
+        return containerUbicacion;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -349,7 +360,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
         btn_Isla_B = new javax.swing.JButton();
         btn_Isla_E = new javax.swing.JButton();
         btn_Isla_F = new javax.swing.JButton();
-        btnBuscar = new javax.swing.JButton();
+        btnMenu = new javax.swing.JButton();
         btn_Entrada = new javax.swing.JButton();
         btn_salida = new javax.swing.JButton();
 
@@ -417,13 +428,13 @@ public class PlantelPuerto extends javax.swing.JFrame {
         });
         jPanel1.add(btn_Isla_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 200, 60, 230));
 
-        btnBuscar.setText("jButton1");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnMenu.setText("jButton1");
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnMenuActionPerformed(evt);
             }
         });
-        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        jPanel1.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 60, 80));
 
         btn_Entrada.setText("jButton1");
         btn_Entrada.addActionListener(new java.awt.event.ActionListener() {
@@ -447,38 +458,56 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_TallerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TallerActionPerformed
-        System.out.println(taller.toString());
-        System.out.println(taller.size());
+        System.out.println("Descripcion de los contenedores en el taller:");
+        for (int i = 0; i < taller.size(); i++) {
+            System.out.println(taller.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en el taller: " + taller.size());
         System.out.println("");
     }//GEN-LAST:event_btn_TallerActionPerformed
 
     private void btn_Isla_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_CActionPerformed
-        System.out.println(islaC.toString());
-        System.out.println(islaC.size());
+        System.out.println("Descripcion de los contenedores en la isla C:");
+        for (int i = 0; i < islaC.size(); i++) {
+            System.out.println(islaC.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en la isla C: " + islaC.size());
         System.out.println("");
     }//GEN-LAST:event_btn_Isla_CActionPerformed
 
     private void btn_Isla_DActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_DActionPerformed
-        System.out.println(islaD.toString());
-        System.out.println(islaD.size());
+        System.out.println("Descripcion de los contenedores en la isla D:");
+        for (int i = 0; i < islaD.size(); i++) {
+            System.out.println(islaD.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en la isla D: " + islaD.size());
         System.out.println("");
     }//GEN-LAST:event_btn_Isla_DActionPerformed
 
     private void btn_Isla_BActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_BActionPerformed
-        System.out.println(islaB.toString());
-        System.out.println(islaB.size());
+        System.out.println("Descripcion de los contenedores en la isla B:");
+        for (int i = 0; i < islaB.size(); i++) {
+            System.out.println(islaB.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en la isla B: " + islaB.size());
         System.out.println("");
     }//GEN-LAST:event_btn_Isla_BActionPerformed
 
     private void btn_Isla_EActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_EActionPerformed
-        System.out.println(islaE.toString());
-        System.out.println(islaE.size());
+        System.out.println("Descripcion de los contenedores en la isla E:");
+        for (int i = 0; i < islaE.size(); i++) {
+            System.out.println(islaE.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en la isla E: " + islaE.size());
         System.out.println("");
     }//GEN-LAST:event_btn_Isla_EActionPerformed
 
     private void btn_Isla_FActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_FActionPerformed
-        System.out.println(islaF.toString());
-        System.out.println(islaF.size());
+        System.out.println("Descripcion de los contenedores en la isla F:");
+        for (int i = 0; i < islaF.size(); i++) {
+            System.out.println(islaF.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en la isla F: " + islaF.size());
         System.out.println("");
     }//GEN-LAST:event_btn_Isla_FActionPerformed
 
@@ -491,18 +520,43 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
         System.out.println("SoyLaSalida");
-
+        /*
+        Hacer el metodo que permita sacar contenedores de sus islas y mandarlos a las
+        listas de la finca y almacen fiscal
+         */
     }//GEN-LAST:event_btn_salidaActionPerformed
 
     private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
-        System.out.println(islaA.toString());
-        System.out.println(islaA.size());
-
+        System.out.println("Descripcion de los contenedores en la isla A:");
+        for (int i = 0; i < islaA.size(); i++) {
+            System.out.println(islaA.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en la isla A: " + islaA.size());
+        System.out.println("");
     }//GEN-LAST:event_btn_Isla_AActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        menuBuscar();
+    }//GEN-LAST:event_btnMenuActionPerformed
 
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    public void menuBuscar() {
+        int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2.Salir del menu."));
+        switch (menuAux) {
+            case 1:
+                int idTemp = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
+                if (idTemp > 0 && idTemp <= 50) {
+                    buscar(idTemp);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese un id válido.");
+                    menuBuscar();
+                }
+                break;
+            case 2:
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -552,7 +606,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnMenu;
     private javax.swing.JButton btn_Entrada;
     private javax.swing.JButton btn_Isla_A;
     private javax.swing.JButton btn_Isla_B;
