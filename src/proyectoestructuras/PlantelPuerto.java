@@ -104,64 +104,63 @@ public class PlantelPuerto extends javax.swing.JFrame {
             }
             listaContainer.get(i).setUbicacion("Barco (importación)");
             //Poner aqui la fecha de llegada al plantel del puerto
-            mes = (int) (Math.random() * (12 - 1) + 1);
+            mes = (int) (Math.random() * (13 - 1) + 1);
             switch (mes) {
                 case 1:
-                    dia = (int) (Math.random() * (29 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    
                     break;
                 case 2:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (32 - 1) + 1);
+                    
                     break;
                 case 3:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    
                     break;
                 case 4:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    
                     break;
                 case 5:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    
                     break;
                 case 6:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    
                     break;
                 case 7:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (32 - 1) + 1);
+                    
                     break;
                 case 8:
-                    dia = (int) (Math.random() * (29 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (30 - 1) + 1);
+                    
                     break;
                 case 9:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    
                     break;
                 case 10:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (32 - 1) + 1);
+                    
                     break;
                 case 11:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (31 - 1) + 1);
+                    
                     break;
                 case 12:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-                    //Cambiar los maximos de los mathrandom
+                    dia = (int) (Math.random() * (32 - 1) + 1);
+                    
                     break;
             }
-            //Cambiar los maximos de los mathrandom
-            yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);  //Cambiar los maximos de los mathrandom
-            //Cambiar los maximos de los mathrandom
-            while (yearEntrada <= 1995 || mes >= 2050) {
-                //Cambiar los maximos de los mathrandom
-                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);  //Cambiar los maximos de los mathrandom
-                //Cambiar los maximos de los mathrandom
+            
+            yearEntrada = (int) (Math.random() * (2022 - 1882) + 1882);  
+            
+            while (yearEntrada < 1995 || mes >= 2023) {
+                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);  
+                
             }
             if (Integer.toString(mes).length() == 1) {
                 mes = 0 + mes;
