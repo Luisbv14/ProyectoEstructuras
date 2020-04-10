@@ -8,6 +8,7 @@ public class Fruta {
 
     public Fruta() {
         int aux =(int) (Math.random() * (4-1) + 1);
+        System.out.println("Fruta aux = " + aux);
         switch(aux) {
             case 1:
                 tipo = "Naranjas";

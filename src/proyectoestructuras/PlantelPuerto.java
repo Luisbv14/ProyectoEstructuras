@@ -103,60 +103,60 @@ public class PlantelPuerto extends javax.swing.JFrame {
             switch (mes) {
                 case 1:
                     dia = (int) (Math.random() * (29 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 2:
                     dia = (int) (Math.random() * (31 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 3:
                     dia = (int) (Math.random() * (30 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 4:
                     dia = (int) (Math.random() * (30 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 5:
                     dia = (int) (Math.random() * (30 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 6:
                     dia = (int) (Math.random() * (30 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 7:
                     dia = (int) (Math.random() * (31 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 8:
                     dia = (int) (Math.random() * (29 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 9:
                     dia = (int) (Math.random() * (30 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 10:
                     dia = (int) (Math.random() * (31 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 11:
                     dia = (int) (Math.random() * (30 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
                 case 12:
                     dia = (int) (Math.random() * (31 - 1) + 1);
-                     //Cambiar los maximos de los mathrandom
+                    //Cambiar los maximos de los mathrandom
                     break;
             }
-             //Cambiar los maximos de los mathrandom
+            //Cambiar los maximos de los mathrandom
             yearEntrada = (int) (Math.random() * (2050 - 2019) + 2019);  //Cambiar los maximos de los mathrandom
-             //Cambiar los maximos de los mathrandom
+            //Cambiar los maximos de los mathrandom
             while (yearEntrada <= 1995 || mes >= 2050) {
-                 //Cambiar los maximos de los mathrandom
+                //Cambiar los maximos de los mathrandom
                 yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);  //Cambiar los maximos de los mathrandom
-                 //Cambiar los maximos de los mathrandom
+                //Cambiar los maximos de los mathrandom
             }
             if (Integer.toString(mes).length() == 1) {
                 mes = 0 + mes;
@@ -267,38 +267,69 @@ public class PlantelPuerto extends javax.swing.JFrame {
     /*Metodo que verifica el contenido de los contenedores 
     y los agrega a su respectiva isla. */
     public void containerIslas() {
-        for (int i = 0; i < tamañoListaContainer; i++) {
-            System.out.println("La i es = " + i);
-            if (listaContainer.get(i).getCarga().equals("Banano")) {
-                /*iterar con un for por la isla y verificar si el stack esta lleno, 
-                si no lo esta lo agrega, si si lo esta pasa al siguiente*/
-                stkA.add(listaContainer.get(i));
-                islaA.add(stkA);
-            } else if (listaContainer.get(i).getCarga().equals("Arroz")) {
-                stkF.add(listaContainer.get(i));
-                islaF.add(stkF);
-
-            } else if (listaContainer.get(i).getDescripCarga().equals("Contiene frutas")) {
-                stkB.add(listaContainer.get(i));
-                islaB.add(stkB);
-
-            } else if (listaContainer.get(i).getDescripCarga().equals("Contiene vegetales")) {
-                stkC.add(listaContainer.get(i));
-                islaC.add(stkC);
-            } else if (listaContainer.get(i).getDescripCarga().equals("Contiene plantas")) {
-                stkD.add(listaContainer.get(i));
-                islaD.add(stkD);
-            } else if (listaContainer.get(i).getDescripCarga().equals("Vacío")) {
-                stkE.add(listaContainer.get(i));
-                islaE.add(stkE);
-
-            } else if (listaContainer.get(i).isDañado() == true) {
-                taller.add(listaContainer.get(i));
+        try {
+            for (int i = 0; i < tamañoListaContainer; i++) {
+//            System.out.println("La i es = " + i);
+                if (listaContainer.get(i).getCarga().equals("Bananos")) {
+                    System.out.println("entro banano!!!");
+                    /*Hacer un throw exception diciendo que ya se llenó un stack
+                     */
+                    for (int j = 0; j < 3; j++) {
+                        /*iterar con un for por la isla y verificar si el stack esta lleno,
+                                                        si no lo esta lo agrega, si si lo esta pasa al siguiente*/
+                        stkA.add(listaContainer.get(i));
+                    }
+                    islaA.add(stkA);
+                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla A");
+                } else if (listaContainer.get(i).getCarga().equals("Arroz")) {
+                    for (int j = 0; j < 5; j++) {
+                        stkF.add(listaContainer.get(i));
+                    }
+                    islaF.add(stkF);
+                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla F");
+                } else if (listaContainer.get(i).getDescripCarga().equals("Contiene frutas")) {
+                    for (int j = 0; j < 3; j++) {
+                        stkB.add(listaContainer.get(i));
+                    }
+                    islaB.add(stkB);
+                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla B");
+                } else if (listaContainer.get(i).getDescripCarga().equals("Contiene vegetales")) {
+                    for (int j = 0; j < 3; j++) {
+                        stkC.add(listaContainer.get(i));
+                    }
+                    islaC.add(stkC);
+                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla C");
+                } else if (listaContainer.get(i).getDescripCarga().equals("Contiene plantas")) {
+                    for (int j = 0; j < 3; j++) {
+                        stkD.add(listaContainer.get(i));
+                    }
+                    islaD.add(stkD);
+                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla D");
+                } else if (listaContainer.get(i).getDescripCarga().equals("Vacío")) {
+                    for (int j = 0; j < 6; j++) {
+                        stkE.add(listaContainer.get(i));
+                    }
+                    islaE.add(stkE);
+                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla E");
+                } else if (listaContainer.get(i).isDañado() == true) {
+                    taller.add(listaContainer.get(i));
+                }
             }
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e);
         }
-//        System.out.println("");
-//        System.out.println("");
     }
+
+    /*
+    Metodo que se encarga de buscar un contenedor tomando como argumento el id del contenedor
+     */
+//    public Contenedor buscar() {
+//        Contenedor containerTemp;
+//        for (int i = 0; i < 10; i++) {
+//            containerTemp = listaContainer.get(i).
+//        }
+//        return containerTemp;
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -318,6 +349,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
         btn_Isla_B = new javax.swing.JButton();
         btn_Isla_E = new javax.swing.JButton();
         btn_Isla_F = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         btn_Entrada = new javax.swing.JButton();
         btn_salida = new javax.swing.JButton();
 
@@ -384,6 +416,14 @@ public class PlantelPuerto extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_Isla_F, new org.netbeans.lib.awtextra.AbsoluteConstraints(547, 200, 60, 230));
+
+        btnBuscar.setText("jButton1");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
 
         btn_Entrada.setText("jButton1");
         btn_Entrada.addActionListener(new java.awt.event.ActionListener() {
@@ -460,6 +500,10 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btn_Isla_AActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -508,6 +552,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btn_Entrada;
     private javax.swing.JButton btn_Isla_A;
     private javax.swing.JButton btn_Isla_B;
