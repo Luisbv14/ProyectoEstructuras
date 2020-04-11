@@ -239,7 +239,26 @@ public class PlantelPuerto extends javax.swing.JFrame {
             }
              */
         }
+        
+        /*
+        Inicialización de los objetos que contienen cada una de las islas del puerto
+        */
+        iniciarIslas();
+        
+        /*Metodo que clasifica y ordena los contenedores en sus respectivas islas*/
         containerIslas();
+    }
+    
+    /*Metodos de inicializacion de las islas*/
+    public void iniciarIslas() {
+        for (int i = 0; i < 8; i++) {
+            islaA.set(i, stkA = new Stack());
+            islaB.set(i, stkB = new Stack());
+            islaC.set(i, stkC = new Stack());
+            islaD.set(i, stkD = new Stack());
+            islaE.set(i, stkE = new Stack());
+            islaF.set(i, stkF = new Stack());
+        }
     }
 
     /*Metodo que hace que los contenedores esten dañados
