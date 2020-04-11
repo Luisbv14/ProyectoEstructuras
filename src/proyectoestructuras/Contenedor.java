@@ -14,6 +14,7 @@ public class Contenedor {
     private String estadoCapacidad;
     private String fechaSalida;
     private String fechaEntrada;
+    private String llegadaAlPlantel;
 
     public Contenedor() {
     }
@@ -93,10 +94,16 @@ public class Contenedor {
         this.fechaEntrada = fechaEntrada;
     }
 
+    public String getLlegadaAlPlantel() {
+        return llegadaAlPlantel;
+    }
+
+    public void setLlegadaAlPlantel(String llegadaAlPlantel) {
+        this.llegadaAlPlantel = llegadaAlPlantel;
+    }
+
     @Override
     public String toString() {
-        return "Contenedor: " + "id= " + id + ", carga= " + carga + ", descripCarga= " + descripCarga + ", ubicacion= " + ubicacion + ", dañado= " + dañado + ", tipoRepair= " + tipoRepair + ", estadoCapacidad= " + estadoCapacidad + ", fechaSalida= " + fechaSalida + ", fechaEntrada= " + fechaEntrada + ".";
+        return "Contenedor: " + "id = " + id + ", carga = " + carga + ", descripCarga = " + descripCarga + ", ubicacion = " + ubicacion + ", dañado = " + dañado + ", tipoRepair = " + tipoRepair + ", estadoCapacidad = " + estadoCapacidad + ", fechaSalida = " + fechaSalida + ", fechaEntrada = " + fechaEntrada + ", llegadaAlPlantel = " + llegadaAlPlantel + "";
     }
-    
-    
 }
