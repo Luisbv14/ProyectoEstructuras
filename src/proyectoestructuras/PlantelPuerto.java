@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Stack;
 import javax.swing.JOptionPane;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -54,14 +55,14 @@ public class PlantelPuerto extends javax.swing.JFrame {
     Fruta fruit;
     Planta plants;
     Vegetal veg;
-    private int dia;
-    private int mes;
-    private int yearEntrada;
-    private int yearSalida;
+    String fechaEntrada;
+    String fechaSalida;
+    String fecha;
 
     //Metodo de inicio
     public PlantelPuerto() {
 //        this.setLocationRelativeTo(null);
+        generarFechas();
         llenarContainer();
         initComponents();
 
@@ -69,6 +70,29 @@ public class PlantelPuerto extends javax.swing.JFrame {
 
     /*Metodo encargado de asignarle toda la informacion 
     a cada uno de los contenedores*/
+    
+    public static int numeroRandom(int end, int start){
+         return start + (int)Math.round(Math.random() * (end - start));
+    }
+    
+    public void generarFechas(){
+        GregorianCalendar gc = new GregorianCalendar();
+
+        int year = numeroRandom(2020, 2010);
+
+        gc.set(gc.YEAR, year);
+
+        int dayOfYear = numeroRandom(1, gc.getActualMaximum(gc.DAY_OF_YEAR));
+
+        gc.set(gc.DAY_OF_YEAR, dayOfYear);
+
+        fecha =   gc.get(gc.DAY_OF_MONTH) + "-" + (gc.get(gc.MONTH) + 1) + "-" +gc.get(gc.YEAR);
+        
+    }
+    
+    
+    
+    
     public void llenarContainer() {
         for (int i = 0; i < tamañoListaContainer; i++) {
             container = new Contenedor();
@@ -109,131 +133,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
 //                    System.out.println("aux1 cayo" + aux1);
                     break;
             }
-            listaContainer.get(i).setLlegadaAlPlantel("Barco (importación)");
-            //Poner aqui la fecha de llegada al plantel del puerto
-            mes = (int) (Math.random() * (13 - 1) + 1);
-            switch (mes) {
-                case 1:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-
-                    break;
-                case 2:
-                    dia = (int) (Math.random() * (32 - 1) + 1);
-
-                    break;
-                case 3:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-
-                    break;
-                case 4:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-
-                    break;
-                case 5:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-
-                    break;
-                case 6:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-
-                    break;
-                case 7:
-                    dia = (int) (Math.random() * (32 - 1) + 1);
-
-                    break;
-                case 8:
-                    dia = (int) (Math.random() * (30 - 1) + 1);
-
-                    break;
-                case 9:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-
-                    break;
-                case 10:
-                    dia = (int) (Math.random() * (32 - 1) + 1);
-
-                    break;
-                case 11:
-                    dia = (int) (Math.random() * (31 - 1) + 1);
-
-                    break;
-                case 12:
-                    dia = (int) (Math.random() * (32 - 1) + 1);
-
-                    break;
-            }
-
-            yearEntrada = (int) (Math.random() * (2022 - 1882) + 1882);
-
-            while (yearEntrada < 1995 || mes >= 2023) {
-                yearEntrada = (int) (Math.random() * (2020 - 1882) + 1882);
-
-            }
-            if (Integer.toString(mes).length() == 1) {
-                mes = 0 + mes;
-            }
-            if (Integer.toString(dia).length() == 1) {
-                dia = 0 + dia;
-            }
-            listaContainer.get(i).setFechaEntrada(dia + "/" + mes + "/" + yearEntrada);
-            //fin codigo de generador de dia y mes de llegada.
-
-            //Inicio codigo generador de dia de salida.
-//            yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
-//            while (yearEntrada > yearSalida) {
-//                yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
-//                System.out.println("Buscando fecha while1");
-//                while (yearEntrada < yearSalida) {
-//                    yearSalida = (int) (Math.random() * (2020 - 1882) + 1882);
-//                    System.out.println("buscando fecha while2");
-//                }
-//
-//                mes = (int) (Math.random() * (12 - 1) + 1);
-//                switch (mes) {
-//                    case 1:
-//                        dia = (int) (Math.random() * (29 - 1) + 1);
-//                        break;
-//                    case 2:
-//                        dia = (int) (Math.random() * (31 - 1) + 1);
-//                        break;
-//                    case 3:
-//                        dia = (int) (Math.random() * (30 - 1) + 1);
-//                        break;
-//                    case 4:
-//                        dia = (int) (Math.random() * (30 - 1) + 1);
-//                        break;
-//                    case 5:
-//                        dia = (int) (Math.random() * (30 - 1) + 1);
-//                        break;
-//                    case 6:
-//                        dia = (int) (Math.random() * (30 - 1) + 1);
-//                        break;
-//                    case 7:
-//                        dia = (int) (Math.random() * (31 - 1) + 1);
-//                        break;
-//                    case 8:
-//                        dia = (int) (Math.random() * (29 - 1) + 1);
-//                        break;
-//                    case 9:
-//                        dia = (int) (Math.random() * (30 - 1) + 1);
-//                        break;
-//                    case 10:
-//                        dia = (int) (Math.random() * (31 - 1) + 1);
-//                        break;
-//                    case 11:
-//                        dia = (int) (Math.random() * (30 - 1) + 1);
-//                        break;
-//                    case 12:
-//                        dia = (int) (Math.random() * (31 - 1) + 1);
-//                        break;
-//                }
-//                if (Integer.toString(mes).length() == 1) {
-//                    mes = 0 + mes;
-//                }
-//                if (Integer.toString(dia).length() == 1) {
-//                    dia = 0 + dia;
-//                }
-//                listaContainer.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);
+            
 //                //Fin codigo de definir fecha de salida. 
             //Randomización de contenedores dañados.
             int aux2 = (int) (Math.random() * (10 - 1) + 1);
@@ -695,7 +595,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     public void menuBuscar() {
-        int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2.Salir del menu."));
+        int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2. Mandar un contendor a la salida \n 3. Salir del menu."));
         switch (menuAux) {
             case 1:
                 int idTemp = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
@@ -708,6 +608,8 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 }
                 break;
             case 2:
+                break;
+            case 3:
                 break;
             default:
                 JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
