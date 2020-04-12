@@ -37,6 +37,13 @@ public class PlantelPuerto extends javax.swing.JFrame {
     Stack stkE = new Stack();
     Stack stkF = new Stack();
 
+    int tamañoIslaA = 0;
+    int tamañoIslaB = 0;
+    int tamañoIslaC = 0;
+    int tamañoIslaD = 0;
+    int tamañoIslaE = 0;
+    int tamañoIslaF = 0;
+
 //    Contenedor[] islaA = new Contenedor[8];
 //    Contenedor[] islaB = new Contenedor[8];
 //    Contenedor[] islaC = new Contenedor[8];
@@ -172,92 +179,90 @@ public class PlantelPuerto extends javax.swing.JFrame {
             //fin codigo de generador de dia y mes de llegada.
 
             //Inicio codigo generador de dia de salida.
-            /*cambiar esta parte
-            yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
-            while (yearEntrada > yearSalida) {
-                yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
-                System.out.println("Buscando fecha while1");
-                while (yearEntrada < yearSalida) {
-                    yearSalida = (int) (Math.random() * (2020 - 1882) + 1882);
-                    System.out.println("buscando fecha while2");
-                }
-            
-                mes = (int) (Math.random() * (12 - 1) + 1);
-                switch (mes) {
-                    case 1:
-                        dia = (int) (Math.random() * (29 - 1) + 1);
-                        break;
-                    case 2:
-                        dia = (int) (Math.random() * (31 - 1) + 1);
-                        break;
-                    case 3:
-                        dia = (int) (Math.random() * (30 - 1) + 1);
-                        break;
-                    case 4:
-                        dia = (int) (Math.random() * (30 - 1) + 1);
-                        break;
-                    case 5:
-                        dia = (int) (Math.random() * (30 - 1) + 1);
-                        break;
-                    case 6:
-                        dia = (int) (Math.random() * (30 - 1) + 1);
-                        break;
-                    case 7:
-                        dia = (int) (Math.random() * (31 - 1) + 1);
-                        break;
-                    case 8:
-                        dia = (int) (Math.random() * (29 - 1) + 1);
-                        break;
-                    case 9:
-                        dia = (int) (Math.random() * (30 - 1) + 1);
-                        break;
-                    case 10:
-                        dia = (int) (Math.random() * (31 - 1) + 1);
-                        break;
-                    case 11:
-                        dia = (int) (Math.random() * (30 - 1) + 1);
-                        break;
-                    case 12:
-                        dia = (int) (Math.random() * (31 - 1) + 1);
-                        break;
-                }
-                if (Integer.toString(mes).length() == 1) {
-                    mes = 0 + mes;
-                }
-                if (Integer.toString(dia).length() == 1) {
-                    dia = 0 + dia;
-                }
-                listaContainer.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);
-                //Fin codigo de definir fecha de salida. 
-
-                //Randomización de contenedores dañados.
-                int aux2 = (int) (Math.random() * (10 - 1) + 1);
-                if (aux2 == 5) {
-                    listaContainer.get(i).setDañado(true);
-                    listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada"); //Tambien refrigeracion
-                }
+//            yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
+//            while (yearEntrada > yearSalida) {
+//                yearSalida = (int) (Math.random() * (2050 - 2010) + 2010);
+//                System.out.println("Buscando fecha while1");
+//                while (yearEntrada < yearSalida) {
+//                    yearSalida = (int) (Math.random() * (2020 - 1882) + 1882);
+//                    System.out.println("buscando fecha while2");
+//                }
+//
+//                mes = (int) (Math.random() * (12 - 1) + 1);
+//                switch (mes) {
+//                    case 1:
+//                        dia = (int) (Math.random() * (29 - 1) + 1);
+//                        break;
+//                    case 2:
+//                        dia = (int) (Math.random() * (31 - 1) + 1);
+//                        break;
+//                    case 3:
+//                        dia = (int) (Math.random() * (30 - 1) + 1);
+//                        break;
+//                    case 4:
+//                        dia = (int) (Math.random() * (30 - 1) + 1);
+//                        break;
+//                    case 5:
+//                        dia = (int) (Math.random() * (30 - 1) + 1);
+//                        break;
+//                    case 6:
+//                        dia = (int) (Math.random() * (30 - 1) + 1);
+//                        break;
+//                    case 7:
+//                        dia = (int) (Math.random() * (31 - 1) + 1);
+//                        break;
+//                    case 8:
+//                        dia = (int) (Math.random() * (29 - 1) + 1);
+//                        break;
+//                    case 9:
+//                        dia = (int) (Math.random() * (30 - 1) + 1);
+//                        break;
+//                    case 10:
+//                        dia = (int) (Math.random() * (31 - 1) + 1);
+//                        break;
+//                    case 11:
+//                        dia = (int) (Math.random() * (30 - 1) + 1);
+//                        break;
+//                    case 12:
+//                        dia = (int) (Math.random() * (31 - 1) + 1);
+//                        break;
+//                }
+//                if (Integer.toString(mes).length() == 1) {
+//                    mes = 0 + mes;
+//                }
+//                if (Integer.toString(dia).length() == 1) {
+//                    dia = 0 + dia;
+//                }
+//                listaContainer.get(i).setFechaSalida(dia + "/" + mes + "/" + yearSalida);
+//                //Fin codigo de definir fecha de salida. 
+            //Randomización de contenedores dañados.
+            int aux2 = (int) (Math.random() * (10 - 1) + 1);
+            if (aux2 == 5) {
+                listaContainer.get(i).setDañado(true);
+                listaContainer.get(i).setTipoRepair("La estructura del contenedor está dañada"); //Tambien refrigeracion
             }
-             */
         }
-        
+
+//        }
+
         /*
         Inicialización de los objetos que contienen cada una de las islas del puerto
-        */
+         */
         iniciarIslas();
-        
+
         /*Metodo que clasifica y ordena los contenedores en sus respectivas islas*/
         containerIslas();
     }
-    
+
     /*Metodos de inicializacion de las islas*/
     public void iniciarIslas() {
         for (int i = 0; i < 8; i++) {
-            islaA.set(i, stkA = new Stack());
-            islaB.set(i, stkB = new Stack());
-            islaC.set(i, stkC = new Stack());
-            islaD.set(i, stkD = new Stack());
-            islaE.set(i, stkE = new Stack());
-            islaF.set(i, stkF = new Stack());
+            islaA.add(stkA = new Stack());
+            islaB.add(stkB = new Stack());
+            islaC.add(stkC = new Stack());
+            islaD.add(stkD = new Stack());
+            islaE.add(stkE = new Stack());
+            islaF.add(stkF = new Stack());
         }
     }
 
@@ -291,54 +296,94 @@ public class PlantelPuerto extends javax.swing.JFrame {
     y los agrega a su respectiva isla. */
     public void containerIslas() {
         try {
-            for (int x = 0; x < tamañoListaContainer; x++) {
+            for (int y = 0; y < tamañoListaContainer; y++) {
 //            System.out.println("La i es = " + i);
-                if (listaContainer.get(x).getCarga().equals("Bananos")) {
-//                    int y = 0;
-//                    listaContainer.get(x).setUbicacion("Isla A");
-//                    if (stk)
-//                    stkA.add(y, listaContainer.get(x));
-//                    y++;
-//                    islaA.add(stkA);
-//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla A");
-                } else if (listaContainer.get(x).getCarga().equals("Arroz")) {
-                    listaContainer.get(x).setUbicacion("Isla F");
-                    for (int j = 0; j < 5; j++) {
-                        stkF.add(listaContainer.get(x));
+                if (listaContainer.get(y).getCarga().equals("Bananos")) {  //ISLA A
+                    listaContainer.get(y).setUbicacion("Isla A");
+                    for (int y2 = 0; y2 < 8; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
+                        if (islaA.get(y2).size() < 3) {
+                            islaA.get(y2).push(listaContainer.get(y));
+                            tamañoIslaA++;
+                            break;
+                        } else {
+                            System.out.println("Se llenó un stack en la isla A");
+                        }
+                        if (y2 == 7) {
+                            System.out.println("No se logró meter al contenedor en el stack = " + y + " en la isla A");
+                        }
                     }
-                    islaF.add(stkF);
-//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla F");
-                    System.out.println("Se llenó uno de los stacks de la isla F");
-                } else if (listaContainer.get(x).getDescripCarga().equals("Contiene frutas citricas")) {
-                    for (int j = 0; j < 3; j++) {
-                        stkB.add(listaContainer.get(x));
+                } else if (listaContainer.get(y).getCarga().equals("Arroz")) {  //ISLA F
+                    listaContainer.get(y).setUbicacion("Isla F");
+                    for (int y2 = 0; y2 < 8; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
+                        if (islaF.get(y2).size() < 5) {
+                            islaF.get(y2).push(listaContainer.get(y));
+                            tamañoIslaF++;
+                            break;
+                        } else {
+                            System.out.println("Se llenó uno de los stacks de la isla F");
+                        }
+                        if (y2 == 7) {
+                            System.out.println("No se logró meter al contenedor en el stack = " + y + " en la isla F");
+                        }
                     }
-                    islaB.add(stkB);
-//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla B");
+                } else if (listaContainer.get(y).getDescripCarga().equals("Contiene frutas citricas")) { //ISLA B
+                    for (int y2 = 0; y2 < 8; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
+                        if (islaB.get(y2).size() < 3) {
+                            islaB.get(y2).push(listaContainer.get(y));
+                            tamañoIslaB++;
+                            break;
+                        } else {
+                            System.out.println("Se llenó uno de los stacks de la isla B");
+                        }
+                        if (y2 == 7) {
+                            System.out.println("No se logró meter al contenedor en el stack = " + y + " en la isla B");
+                        }
+                    }
                     System.out.println("Se llenó uno de los stacks de la isla B");
-                } else if (listaContainer.get(x).getDescripCarga().equals("Contiene vegetales")) {
-                    for (int j = 0; j < 3; j++) {
-                        stkC.add(listaContainer.get(x));
+                } else if (listaContainer.get(y).getDescripCarga().equals("Contiene vegetales")) {  //ISLA C
+                    for (int y2 = 0; y2 < 8; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
+                        if (islaC.get(y2).size() < 3) {
+                            islaC.get(y2).push(listaContainer.get(y));
+                            tamañoIslaC++;
+                            break;
+                        } else {
+                            System.out.println("Se llenó uno de los stacks de la isla C");
+                        }
+                        if (y2 == 7) {
+                            System.out.println("No se logró meter al contenedor en el stack = " + y + " en la isla C");
+                        }
                     }
-                    islaC.add(stkC);
-//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla C");
                     System.out.println("Se llenó uno de los stacks de la isla C");
-                } else if (listaContainer.get(x).getDescripCarga().equals("Contiene plantas")) {
-                    for (int j = 0; j < 3; j++) {
-                        stkD.add(listaContainer.get(x));
+                } else if (listaContainer.get(y).getDescripCarga().equals("Contiene plantas")) {  //ISLA D
+                    for (int y2 = 0; y2 < 8; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
+                        if (islaD.get(y2).size() < 3) {
+                            islaD.get(y2).push(listaContainer.get(y));
+                            tamañoIslaD++;
+                            break;
+                        } else {
+                            System.out.println("Se llenó uno de los stacks de la isla D");
+                        }
+                        if (y2 == 7) {
+                            System.out.println("No se logró meter al contenedor en el stack = " + y + " en la isla D");
+                        }
                     }
-                    islaD.add(stkD);
-//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla D");
                     System.out.println("Se llenó uno de los stacks de la isla D");
-                } else if (listaContainer.get(x).getDescripCarga().equals("Vacio")) {
-                    for (int j = 0; j < 6; j++) {
-                        stkE.add(listaContainer.get(x));
+                } else if (listaContainer.get(y).getDescripCarga().equals("Vacio")) {  //ISLA E
+                    for (int y2 = 0; y2 < 5; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
+                        if (islaE.get(y2).size() < 6) {
+                            islaE.get(y2).push(listaContainer.get(y));
+                            tamañoIslaE++;
+                            break;
+                        } else {
+                            System.out.println("Se llenó uno de los stacks de la isla E");
+                        }
+                        if (y2 == 7) {
+                            System.out.println("No se logró meter al contenedor en el stack = " + y + " en la isla E");
+                        }
                     }
-                    islaE.add(stkE);
-//                    throw new IndexOutOfBoundsException("Se llenó uno de los stacks de la isla E");
                     System.out.println("Se llenó uno de los stacks de la isla E");
-                } else if (listaContainer.get(x).isDañado() == true) {
-                    taller.add(listaContainer.get(x));
+                } else if (listaContainer.get(y).isDañado() == true) {
+                    taller.add(listaContainer.get(y));
                 }
             }
         } catch (IndexOutOfBoundsException e) {
@@ -371,7 +416,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     }
                     i++;
                 }
-                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack;
+                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack + 1;
                 break;
             case "Isla B":
                 while (!encontrado) {
@@ -383,7 +428,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     }
                     i++;
                 }
-                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack;
+                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack + 1;
                 break;
             case "Isla C":
                 while (!encontrado) {
@@ -395,7 +440,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     }
                     i++;
                 }
-                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack;
+                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack + 1;
                 break;
             case "Isla D":
                 while (!encontrado) {
@@ -407,7 +452,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     }
                     i++;
                 }
-                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack;
+                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack + 1;
                 break;
             case "Isla E":
                 while (!encontrado) {
@@ -419,7 +464,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     }
                     i++;
                 }
-                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack;
+                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack + 1;
                 break;
             case "Isla F":
                 while (!encontrado) {
@@ -431,7 +476,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     }
                     i++;
                 }
-                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack;
+                busqueda += ", en el stack = " + i + ", en la posición = " + ubicStack + 1;
                 break;
             default:
                 System.out.println("Fallo creando la busqueda del contenedor.");
@@ -637,11 +682,11 @@ public class PlantelPuerto extends javax.swing.JFrame {
     private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
         System.out.println("Descripcion de los contenedores en la isla A:");
         for (int i = 0; i < islaA.size(); i++) {
-            if (islaE.get(i).toString() != null) {
+            if (!islaA.get(i).isEmpty()) {
                 System.out.println(islaA.get(i).toString());
             }
         }
-        System.out.println("Cantidad de contenedores en la isla A: " + islaA.size());
+        System.out.println("Cantidad de contenedores en la isla A: " + tamañoIslaA);
         System.out.println("");
     }//GEN-LAST:event_btn_Isla_AActionPerformed
 
