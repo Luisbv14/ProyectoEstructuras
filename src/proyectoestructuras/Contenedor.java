@@ -104,6 +104,6 @@ public class Contenedor {
 
     @Override
     public String toString() {
-        return "Contenedor: " + "id = " + id + ", carga = " + carga + ", descripCarga = " + descripCarga + ", ubicacion = " + ubicacion + ", dañado = " + dañado + ", tipoRepair = " + tipoRepair + ", estadoCapacidad = " + estadoCapacidad + ", fechaSalida = " + fechaSalida + ", fechaEntrada = " + fechaEntrada + ", llegadaAlPlantel = " + llegadaAlPlantel + "";
+        return "Contenedor: " + "id = " + id + ", carga = " + carga + ", descripCarga = " + descripCarga + ", ubicacion = " + ubicacion + ", dañado = " + dañado + ", tipoRepair = " + tipoRepair + ", estadoCapacidad = " + estadoCapacidad + ", fechaSalida = " + fechaSalida + ", fechaEntrada = " + fechaEntrada + "";
     }
 }

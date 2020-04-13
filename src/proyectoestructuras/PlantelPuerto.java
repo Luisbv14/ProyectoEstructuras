@@ -24,7 +24,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
     LinkedList<Contenedor> almacenFiscal = new LinkedList<>();
     LinkedList<Contenedor> finca = new LinkedList<>();
     LinkedList<Contenedor> barcoExportacion = new LinkedList<>();
-    
+
     private int tamañoListaContainer = 50;
 
     ArrayList<Stack> islaA = new ArrayList<Stack>();
@@ -48,8 +48,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
     int tamañoIslaD = 0;
     int tamañoIslaE = 0;
     int tamañoIslaF = 0;
-    
-    
+
     Contenedor container;
     Fruta fruit;
     Planta plants;
@@ -291,6 +290,9 @@ public class PlantelPuerto extends javax.swing.JFrame {
         idSearch--;
         busqueda = listaContainer.get(idSearch).getUbicacion();
         switch (busqueda) {
+            case "Taller":
+                encontrado = true;
+                busqueda += " y está dañado, por lo que no se puede sacar de ese lugar";
             case "En una finca":
                 encontrado = true;
                 break;
@@ -385,13 +387,13 @@ public class PlantelPuerto extends javax.swing.JFrame {
         }
         return busqueda;
     }
-    
+
     /*
     MENU DISEÑADO PARA COMPLEMENTAR EL METODO DE SALIDA
-    */
+     */
     public void menuSalida(Contenedor container, String txt) {
         int opcMenuSalida = Integer.parseInt(JOptionPane.showInputDialog("A cuál sitio desea enviar el contenedor previamente indicado?\n1.Almacén Fiscal.\n2.Finca.\n3.Barco(Exportación)."));
-        switch(opcMenuSalida) {
+        switch (opcMenuSalida) {
             case 1:
                 almacenFiscal.add(container);
                 txt += ", \n pero ahora está en un almacén fiscal.";
@@ -423,6 +425,9 @@ public class PlantelPuerto extends javax.swing.JFrame {
         idSearch--;
         busqueda = listaContainer.get(idSearch).getUbicacion();
         switch (busqueda) {
+            case "Taller":
+                encontrado = true;
+                busqueda += " y está dañado, por lo que no se puede sacar de ese lugar";
             case "En una finca":
                 encontrado = true;
                 busqueda += ", por lo que no se puede sacar de ese lugar.";
@@ -545,6 +550,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
         btn_Entrada = new javax.swing.JButton();
         btn_salida = new javax.swing.JButton();
+        btnMenu2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -634,6 +640,14 @@ public class PlantelPuerto extends javax.swing.JFrame {
         });
         jPanel1.add(btn_salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
+        btnMenu2.setText("jButton1");
+        btnMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenu2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnMenu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 2, 60, 70));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 440));
 
         pack();
@@ -711,12 +725,34 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_EntradaActionPerformed
 
     private void btn_salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_salidaActionPerformed
-        System.out.println("SoyLaSalida");
+//        System.out.println("SoyLaSalida");
         /*
         Hacer el metodo que permita sacar contenedores de sus islas y mandarlos a las
         listas de la finca y almacen fiscal
          */
-        menuBuscarSalida();
+        System.out.println("Descripción de los contenedores en el almacén fiscal:");
+        for (int i = 0; i < almacenFiscal.size(); i++) {
+            System.out.println(almacenFiscal.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en el almacén fiscal: " + almacenFiscal.size());
+
+        System.out.println("");
+
+        System.out.println("Descripción de los contenedores en la finca:");
+        for (int i = 0; i < finca.size(); i++) {
+            System.out.println(finca.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en el finca: " + finca.size());
+
+        System.out.println("");
+
+        System.out.println("Descripción de los contenedores en el barco(Exportación):");
+        for (int i = 0; i < barcoExportacion.size(); i++) {
+            System.out.println(barcoExportacion.get(i).toString());
+        }
+        System.out.println("Cantidad de contenedores en el barco(Exportación): " + barcoExportacion.size());
+
+        System.out.println("");
     }//GEN-LAST:event_btn_salidaActionPerformed
 
     private void btn_Isla_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Isla_AActionPerformed
@@ -734,6 +770,10 @@ public class PlantelPuerto extends javax.swing.JFrame {
         menuBuscar();
     }//GEN-LAST:event_btnMenuActionPerformed
 
+    private void btnMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenu2ActionPerformed
+        menuBuscar();
+    }//GEN-LAST:event_btnMenu2ActionPerformed
+
     public void menuBuscar() {
         int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2. Mandar un contendor a la salida \n 3. Salir del menu."));
         switch (menuAux) {
@@ -748,28 +788,14 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 }
                 break;
             case 2:
-                break;
-            case 3:
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
-        }
-    }
-    
-    public void menuBuscarSalida() {
-        int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2. Mandar un contendor a la salida \n 3. Salir del menu."));
-        switch (menuAux) {
-            case 1:
-                int idTemp = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
-                if (idTemp > 0 && idTemp <= 50) {
-                    transferContainer(idTemp);
-                    menuBuscarSalida();
+                int idTemp2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
+                if (idTemp2 > 0 && idTemp2 <= 50) {
+                    transferContainer(idTemp2);
+                    menuBuscar();
                 } else {
                     JOptionPane.showMessageDialog(null, "Por favor, ingrese un id válido.");
-                    menuBuscarSalida();
+                    menuBuscar();
                 }
-                break;
-            case 2:
                 break;
             case 3:
                 break;
@@ -777,7 +803,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
         }
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -827,6 +853,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnMenu2;
     private javax.swing.JButton btn_Entrada;
     private javax.swing.JButton btn_Isla_A;
     private javax.swing.JButton btn_Isla_B;
