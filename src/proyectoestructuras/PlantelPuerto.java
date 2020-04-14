@@ -166,20 +166,20 @@ public class PlantelPuerto extends javax.swing.JFrame {
         //Randomización de contenedores dañados.
         int aux2 = numeroRandom(10, 1);
         if (aux2 == 5) {
-            System.out.println("numero random de dañados = " + aux2);
+//            System.out.println("numero random de dañados = " + aux2);
             listaContainer.get(posicion).setDañado(true);
-        }
-        int randInt2 = numeroRandom(3, 1);
-        switch (randInt2) {
-            case 1:
-                listaContainer.get(posicion).setTipoRepair("eliminacion de corrosion");
-                break;
-            case 2:
-                listaContainer.get(posicion).setTipoRepair("correcion de imperfercciones");
-                break;
-            case 3:
-                listaContainer.get(posicion).setTipoRepair("Pintura anti-corrosion");
-                break;
+            int randInt2 = numeroRandom(3, 1);
+            switch (randInt2) {
+                case 1:
+                    listaContainer.get(posicion).setTipoRepair("eliminacion de corrosion");
+                    break;
+                case 2:
+                    listaContainer.get(posicion).setTipoRepair("correcion de imperfercciones");
+                    break;
+                case 3:
+                    listaContainer.get(posicion).setTipoRepair("Pintura anti-corrosion");
+                    break;
+            }
         }
     }
 
@@ -193,6 +193,7 @@ public class PlantelPuerto extends javax.swing.JFrame {
                     taller.add(listaContainer.get(y));
                     listaContainer.get(y).setUbicacion("Taller");
                 } else if (listaContainer.get(y).getCarga().equals("Bananos")) {  //ISLA A
+                    listaContainer.get(y).setDescripCarga("Contiene frutas");
                     listaContainer.get(y).setUbicacion("Isla A");
                     for (int y2 = 0; y2 < 8; y2++) {  //Son las posiciones de la isla, cada uno de los stacks
                         if (islaA.get(y2).size() < 3) {
@@ -775,32 +776,39 @@ public class PlantelPuerto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenu2ActionPerformed
 
     public void menuBuscar() {
-        int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2. Mandar un contendor a la salida \n 3. Salir del menu."));
-        switch (menuAux) {
-            case 1:
-                int idTemp = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
-                if (idTemp > 0 && idTemp <= 50) {
-                    System.out.println("El contenedor que busca se encuentra en: " + buscar(idTemp));
+        try {
+            int menuAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la opción que desea ejecutar.\n1.Buscar un contenedor.\n2. Mandar un contendor a la salida \n 3. Salir del menu."));
+            switch (menuAux) {
+                case 1:
+                    int idTemp = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
+                    if (idTemp > 0 && idTemp <= 50) {
+                        System.out.println("El contenedor que busca se encuentra en: " + buscar(idTemp));
+                        System.out.println("");
+                        menuBuscar();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese un id válido.");
+                        menuBuscar();
+                    }
+                    break;
+                case 2:
+                    int idTemp2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
+                    if (idTemp2 > 0 && idTemp2 <= 50) {
+                        transferContainer(idTemp2);
+                        menuBuscar();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese un id válido.");
+                        menuBuscar();
+                    }
+                    break;
+                case 3:
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
                     menuBuscar();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Por favor, ingrese un id válido.");
-                    menuBuscar();
-                }
-                break;
-            case 2:
-                int idTemp2 = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el id del contenedor que desea buscar: "));
-                if (idTemp2 > 0 && idTemp2 <= 50) {
-                    transferContainer(idTemp2);
-                    menuBuscar();
-                } else {
-                    JOptionPane.showMessageDialog(null, "Por favor, ingrese un id válido.");
-                    menuBuscar();
-                }
-                break;
-            case 3:
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese una opción válida.");
+            menuBuscar();
         }
     }
 
